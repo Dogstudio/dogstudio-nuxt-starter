@@ -4,8 +4,8 @@
 # Testing
 /coverage
 
-# Next.js
-/.next
+# Nuxt
+/.nuxt
 /out
 
 # Build
