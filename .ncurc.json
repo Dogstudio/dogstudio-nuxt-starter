@@ -1,5 +1,7 @@
 {
   "upgrade": true,
   "interactive": true,
-  "reject": []
+  "reject": [
+    "sass-loader"
+  ]
 }

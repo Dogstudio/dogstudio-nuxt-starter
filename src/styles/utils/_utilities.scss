@@ -1,0 +1,22 @@
+// Hide text while making it readable for screen readers
+// 1. Needed in WebKit-based browsers because of an implementation bug;
+// See: https://code.google.com/p/chromium/issues/detail?id=457146
+.u-hide-text {
+  padding: 0; /* 1 */
+  overflow: hidden;
+  text-indent: 101%;
+  white-space: nowrap;
+}
+
+// Hide element only visually, but have it available for screen readers:
+// http://snook.ca/archives/html_and_css/hiding-content-for-accessibility
+.u-visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  border: 0;
+}

@@ -1,0 +1,25 @@
+// Random Variables
+// -----------------------------------------------------------------------------
+$PI: 3.1415926536;
+
+// Color Palettes
+// -----------------------------------------------------------------------------
+$brand-black: #000;
+$brand-white: #fff;
+
+// Fonts Variables
+// -----------------------------------------------------------------------------
+$base-font-size: 16px;
+$base-line-height: 2;
+
+$fallback-font-serif: 'Times New Roman', 'Georgia', serif;
+$fallback-font-sans-serif: 'Helvetica', 'Arial', sans-serif;
+
+$font-serif: $fallback-font-serif;
+$font-sans-serif: $fallback-font-sans-serif;
+
+// Responsive Settings
+// -----------------------------------------------------------------------------
+$mq-responsive: true;
+$mq-static-breakpoint: xl;
+$mq-show-breakpoints: (xxs, xs, s, m, l, xl, xxl, xxxl);
