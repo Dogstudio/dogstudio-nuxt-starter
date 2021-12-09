@@ -1,5 +1,7 @@
 <template>
-  <p>{{ error.statusCode }} - Error</p>
+  <div>
+    <p>{{ error.statusCode }} - Error</p>
+  </div>
 </template>
 
 <script>
@@ -7,6 +9,12 @@
     head() {
       return {
         title: `${this.error.statusCode} | Dogstudio`,
+        meta: [
+          {
+            hid: 'title',
+            content: `${this.error.statusCode} | Dogstudio`,
+          },
+        ],
       }
     },
     props: ['error'],

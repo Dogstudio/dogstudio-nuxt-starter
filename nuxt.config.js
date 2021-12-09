@@ -102,9 +102,6 @@ export default {
     ],
   },
 
-  // Change the default Nuxt mode
-  mode: 'universal',
-
   // Define custom directories for the application
   // See: https://nuxtjs.org/docs/configuration-glossary/configuration-dir
   dir: {
@@ -170,23 +167,19 @@ export default {
       }
     },
 
-    // Enable CSS chunks extraction in files
-    extractCSS: {
-      ignoreOrder: true,
-    },
-
     // Extend Webpack configuration
-    extend(config) {
+    extend(config, context) {
       // New Webpack rules
       const rules = [
         // Audio files
         // See: https://nuxtjs.org/docs/features/configuration#extend-webpack-to-load-audio-files
         {
-          test: /\.(ogg|mp3|wav|mpe?g)$/i,
+          test: /\.(ogg|mp3|wav|mpe?g)$/,
           use: {
             loader: 'file-loader',
             options: {
-              name: '[path][name].[ext]',
+              name: 'audios/[name].[contenthash:7].[ext]',
+              esModule: false,
             },
           },
         },
