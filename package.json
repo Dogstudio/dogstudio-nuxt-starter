@@ -23,8 +23,12 @@
     "not op_mini all"
   ],
   "devDependencies": {
+    "fibers": "^5.0.0",
+    "glslify-import": "^3.1.0",
+    "glslify-loader": "^2.0.0",
     "npm-check-updates": "^12.0.3",
     "nuxt": "^2.15.8",
+    "raw-loader": "^4.0.2",
     "sass": "^1.44.0",
     "sass-loader": "^10.2.0"
   },
