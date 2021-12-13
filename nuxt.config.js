@@ -146,13 +146,17 @@ export default {
 
   // Enable Nuxt modules to extend its core functionalities
   // See: https://nuxtjs.org/docs/configuration-glossary/configuration-modules
-  modules: [],
+  modules: ['@nuxtjs/axios'],
 
   // Enable auto-import of components within pages, layouts and other components
   // See: https://nuxtjs.org/docs/configuration-glossary/configuration-components
   components: [
     { path: '~/src/components', extensions: ['vue'] }
   ],
+
+  // Axios global configuration
+  // See: https://axios.nuxtjs.org/options
+  axios: {},
 
   // Enable / Disable telemetry
   telemetry: false,

@@ -73,6 +73,7 @@ npm run upgrade
 - [x] Configure linters
 - [x] Configure environment variables
 - [ ] Configure must-have modules
+- [ ] Configure i18n
 - [ ] Run some tests
 
 ## Contributing

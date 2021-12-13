@@ -25,6 +25,8 @@
     "not op_mini all"
   ],
   "dependencies": {
+    "@nuxtjs/axios": "^5.13.6",
+    "@nuxtjs/i18n": "^7.2.0",
     "npm-check-updates": "^12.0.3",
     "nuxt": "^2.15.8",
     "ua-parser-js": "^1.0.2"
