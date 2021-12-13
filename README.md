@@ -72,7 +72,7 @@ npm run upgrade
 - [x] Configure `nuxt.config.js`
 - [x] Configure linters
 - [x] Configure environment variables
-- [ ] Configure must-have modules
+- [x] Configure must-have modules
 - [ ] Configure i18n
 - [ ] Run some tests
 
