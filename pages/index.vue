@@ -5,16 +5,16 @@
 </template>
 
 <script>
-  export default {
-    head: {
-      title: 'Home | Dogstudio',
-      meta: [
-        {
-          hid: 'title',
-          content: 'Home | Dogstudio',
-        },
-      ],
-    },
+export default {
+  name: 'IndexPage',
+  head: {
+    title: 'Home | Dogstudio',
+    meta: [
+      {
+        hid: 'title',
+        content: 'Home | Dogstudio'
+      }
+    ]
   }
+}
 </script>
-

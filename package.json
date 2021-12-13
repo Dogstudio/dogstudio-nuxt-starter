@@ -7,7 +7,9 @@
     "start": "nuxt start",
     "build": "nuxt build",
     "generate": "nuxt generate",
-    "upgrade": "ncu && npm i"
+    "upgrade": "ncu && npm i",
+    "lint": "npm run lint:js",
+    "lint:js": "eslint --ext \".js,.ts,.vue\" ."
   },
   "engineStrict": true,
   "engines": {
@@ -22,17 +24,23 @@
     "not ie_mob > 0",
     "not op_mini all"
   ],
+  "dependencies": {
+    "npm-check-updates": "^12.0.3",
+    "nuxt": "^2.15.8",
+    "ua-parser-js": "^1.0.2"
+  },
   "devDependencies": {
+    "@babel/eslint-parser": "^7.16.3",
+    "@nuxtjs/eslint-config": "^8.0.0",
+    "@nuxtjs/eslint-module": "^3.0.2",
+    "eslint": "^8.4.1",
+    "eslint-plugin-nuxt": "^3.1.0",
+    "eslint-plugin-vue": "^8.2.0",
     "fibers": "^5.0.0",
     "glslify-import": "^3.1.0",
     "glslify-loader": "^2.0.0",
-    "npm-check-updates": "^12.0.3",
-    "nuxt": "^2.15.8",
     "raw-loader": "^4.0.2",
-    "sass": "^1.44.0",
+    "sass": "^1.45.0",
     "sass-loader": "^10.2.0"
-  },
-  "dependencies": {
-    "ua-parser-js": "^1.0.2"
   }
 }

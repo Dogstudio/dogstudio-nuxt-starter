@@ -5,82 +5,94 @@ export default {
   // Change default Nuxt target
   target: 'server',
 
+  // Runtime configurations / Environment variables
+  // See: https://nuxtjs.org/docs/directory-structure/nuxt-config#runtimeconfig
+  // ----------
+  // Public environment variables
+  publicRuntimeConfig: {
+    appMode: process.env.APP_MODE || 'app',
+    appPreview: process.env.APP_PREVIEW || true
+  },
+
+  // Private environment variables
+  privateRuntimeConfig: {},
+
   // Define default meta for the application
   // See: https://nuxtjs.org/docs/configuration-glossary/configuration-head
   head: {
     title: 'Dogstudio | Nuxt Starter',
     meta: [
       {
-        charset: 'utf-8',
+        charset: 'utf-8'
       },
       {
         name: 'viewport',
-        content: 'width=device-width, initial-scale=1.0, maximum-scale=1.0, viewport-fit=cover, user-scalable=no',
+        content: 'width=device-width, initial-scale=1.0, maximum-scale=1.0, viewport-fit=cover, user-scalable=no'
       },
       {
         hid: 'title',
         name: 'title',
-        content: 'Dogstudio | Nuxt Starter',
+        content: 'Dogstudio | Nuxt Starter'
       },
       {
         hid: 'description',
         name: 'description',
-        content: 'Opinionated Nuxt starter by Dogstudio',
+        content: 'Opinionated Nuxt starter by Dogstudio'
       },
 
       // Open Graph / Facebook
       {
         hid: 'og:type',
         content: 'website',
-        property: 'og:type',
+        property: 'og:type'
       },
       {
         hid: 'og:url',
         content: 'http://localhost:3000',
-        property: 'og:url',
+        property: 'og:url'
       },
       {
         hid: 'og:title',
         content: 'Dogstudio | Nuxt Starter',
-        property: 'og:title',
+        property: 'og:title'
       },
       {
         hid: 'og:image',
         content: '/assets/images/share.png',
-        property: 'og:image',
+        property: 'og:image'
       },
       {
         hid: 'og:description',
         content: 'Opinionated Nuxt starter by Dogstudio',
-        property: 'og:description',
+        property: 'og:description'
       },
 
       // Twitter
       {
         hid: 'twitter:url',
         content: 'http://localhost:3000',
-        property: 'twitter:url',
+        property: 'twitter:url'
       },
       {
         hid: 'twitter:card',
         content: 'summary_large_image',
-        property: 'twitter:card',
+        property: 'twitter:card'
       },
       {
         hid: 'twitter:title',
         content: 'Dogstudio | Nuxt Starter',
-        property: 'twitter:title',
+        property: 'twitter:title'
       },
       {
         hid: 'twitter:image',
         content: '/assets/images/share.png',
-        property: 'twitter:image',
+        property: 'twitter:image'
       },
       {
         hid: 'twitter:description',
         content: 'Opinionated Nuxt starter by Dogstudio',
-        property: 'twitter:description',
-      },
+        property: 'twitter:description'
+      }
     ],
 
     // Links
@@ -88,8 +100,8 @@ export default {
       {
         rel: 'icon',
         type: 'image/png',
-        href: '/favicon.ico', 
-      },
+        href: '/favicon.ico'
+      }
     ],
 
     // Scripts
@@ -97,9 +109,9 @@ export default {
       {
         src: '/vendors/modernizr.js',
         type: 'text/javascript',
-        async: true,
+        async: true
       }
-    ],
+    ]
   },
 
   // Define custom directories for the application
@@ -113,13 +125,13 @@ export default {
     store: 'src/store',
     assets: 'src/assets',
     layouts: 'src/layouts',
-    middleware: 'src/middleware',
+    middleware: 'src/middleware'
   },
 
   // Global CSS files includes in every page
   // See: https://nuxtjs.org/docs/configuration-glossary/configuration-css
   css: [
-    '~/src/styles/global.scss',
+    '~/src/styles/global.scss'
   ],
 
   // Toggle the loading indicators between the routes or customize them
@@ -139,7 +151,7 @@ export default {
   // Enable auto-import of components within pages, layouts and other components
   // See: https://nuxtjs.org/docs/configuration-glossary/configuration-components
   components: [
-    { path: '~/src/components', extensions: ['vue'] },
+    { path: '~/src/components', extensions: ['vue'] }
   ],
 
   // Enable / Disable telemetry
@@ -156,19 +168,19 @@ export default {
       vue: {
         // See: https://nuxtjs.org/docs/features/configuration#extend-webpack-to-load-audio-files
         transformAssetUrls: {
-          audio: 'src',
-        },
+          audio: 'src'
+        }
       },
       imgUrl: {
-        limit: false,
+        limit: false
       },
       fontUrl: {
-        limit: false,
+        limit: false
       }
     },
 
     // Extend Webpack configuration
-    extend(config, context) {
+    extend (config, context) {
       // New Webpack rules
       const rules = [
         // Audio files
@@ -179,9 +191,9 @@ export default {
             loader: 'file-loader',
             options: {
               name: 'audios/[name].[contenthash:7].[ext]',
-              esModule: false,
-            },
-          },
+              esModule: false
+            }
+          }
         },
 
         // Shaders
@@ -193,27 +205,27 @@ export default {
             {
               loader: 'glslify-loader',
               options: {
-                transform: ['glslify-import'],
-              },
-            },
-          ],
-        },
-      ];
+                transform: ['glslify-import']
+              }
+            }
+          ]
+        }
+      ]
 
       // Add Webpack rules
       for (const rule of rules) {
-        config.module.rules.push(rule);
+        config.module.rules.push(rule)
       }
 
       // Resolve Extensions
-      config.resolve.extensions.push('.css');
-      config.resolve.extensions.push('.sass');
-      config.resolve.extensions.push('.scss');
-      config.resolve.extensions.push('.json');
+      config.resolve.extensions.push('.css')
+      config.resolve.extensions.push('.sass')
+      config.resolve.extensions.push('.scss')
+      config.resolve.extensions.push('.json')
 
       // Resolve Modules
-      config.resolve.modules.push('.');
-      config.resolve.modules.push('src');
+      config.resolve.modules.push('.')
+      config.resolve.modules.push('src')
     }
   }
 }

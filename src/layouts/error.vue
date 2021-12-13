@@ -5,18 +5,24 @@
 </template>
 
 <script>
-  export default {
-    head() {
-      return {
-        title: `${this.error.statusCode} | Dogstudio`,
-        meta: [
-          {
-            hid: 'title',
-            content: `${this.error.statusCode} | Dogstudio`,
-          },
-        ],
-      }
-    },
-    props: ['error'],
+export default {
+  name: 'ErrorPage',
+  props: {
+    error: {
+      type: Object,
+      required: true
+    }
+  },
+  head () {
+    return {
+      title: `${this.error.statusCode} | Dogstudio`,
+      meta: [
+        {
+          hid: 'title',
+          content: `${this.error.statusCode} | Dogstudio`
+        }
+      ]
+    }
   }
+}
 </script>

@@ -22,7 +22,7 @@ git clone git@github.com:Dogstudio/dogstudio-nuxt-starter.git my-new-app
 
 ```bash
 cd my-new-app
-cp .env.example .env.local
+cp .env.example .env
 ```
 
 ```bash
@@ -63,8 +63,8 @@ npm run upgrade
 
 - [x] Build architecture
 - [x] Configure `nuxt.config.js`
-- [ ] Configure linters
-- [ ] Configure environment variables
+- [x] Configure linters
+- [x] Configure environment variables
 - [ ] Configure must-have modules
 - [ ] Run some tests
 

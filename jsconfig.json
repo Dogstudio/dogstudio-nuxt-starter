@@ -5,13 +5,13 @@
       "*": [
         "*",
         "src/*",
-        "pages/*",
-      ],
+        "pages/*"
+      ]
     }
   },
   "exclude": [
     "dist",
-    "build",
+    ".nuxt",
     "node_modules"
   ]
 }
