@@ -54,6 +54,12 @@ npm run start
 # Run Nuxt in production-mode and generates static files.
 npm run generate
 
+# Run all linter scripts.
+npm run lint
+
+# Run ESLint for `.js`, `.ts` and `.vue` files
+npm run lint:js
+
 # Upgrade the dependencies and devDependencies with interactive mode
 # See: https://www.npmjs.com/package/npm-check-updates
 npm run upgrade
