@@ -6,7 +6,7 @@
 
 The Nuxt starter with all the features you'll need to build blazing-fast websites and applications.
 
-- Next 2
+- Nuxt 2
 - Shaders
 - SCSS/SASS
 
