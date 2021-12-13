@@ -1,9 +1,5 @@
 ## Dogstudio Nuxt Starter
 
-![Dependencies](https://david-dm.org/Dogstudio/dogstudio-nuxt-starter/status.svg)
-![devDependencies](https://david-dm.org/Dogstudio/dogstudio-nuxt-starter/dev-status.svg)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](/LICENSE.md)
-
 The Nuxt starter with all the features you'll need to build blazing-fast websites and applications.
 
 - Nuxt 2
