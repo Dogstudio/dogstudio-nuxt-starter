@@ -36,6 +36,7 @@ We recommend the following documentations to master the stack:
 
 - [Vue](https://vuejs.org/v2/guide/)
 - [Nuxt](https://nuxtjs.org/docs/get-started/installation)
+- [Style Guide](https://vuejs.org/v2/style-guide/)
 
 ## References
 
