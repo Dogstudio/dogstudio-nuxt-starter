@@ -31,6 +31,7 @@ npm run dev
 We recommend the following documentations to master the stack:
 
 - [Vue](https://vuejs.org/v2/guide/)
+- [VueX](https://vuex.vuejs.org/)
 - [Nuxt](https://nuxtjs.org/docs/get-started/installation)
 - [Style Guide](https://vuejs.org/v2/style-guide/)
 
@@ -61,16 +62,6 @@ npm run lint:js
 # See: https://www.npmjs.com/package/npm-check-updates
 npm run upgrade
 ```
-
-## Roadmap
-
-- [x] Build architecture
-- [x] Configure `nuxt.config.js`
-- [x] Configure linters
-- [x] Configure environment variables
-- [x] Configure must-have modules
-- [ ] Configure i18n
-- [ ] Run some tests
 
 ## Contributing
 
