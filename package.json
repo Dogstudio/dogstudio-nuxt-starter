@@ -2,6 +2,9 @@
   "name": "@dogstudio/dogstudio-nuxt-starter",
   "version": "1.0.0-beta",
   "license": "MIT",
+  "private": true,
+  "homepage": "https://github.com/Dogstudio/dogstudio-nuxt-starter",
+  "description": "Opinionated Nuxt starter by Dogstudio",
   "scripts": {
     "dev": "nuxt",
     "start": "nuxt start",
@@ -13,7 +16,16 @@
   },
   "engineStrict": true,
   "engines": {
+    "npm": ">= 6.14.0",
     "node": ">=14.0.0"
+  },
+  "bugs": {
+    "url" : "https://github.com/Dogstudio/dogstudio-nuxt-starter/issues",
+    "email" : "devops@dogstudio.be"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Dogstudio/dogstudio-nuxt-starter.git"
   },
   "browserslist": [
     "last 2 version",
