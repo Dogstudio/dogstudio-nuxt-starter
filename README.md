@@ -34,6 +34,7 @@ We recommend the following documentations to master the stack:
 - [VueX](https://vuex.vuejs.org/)
 - [Nuxt](https://nuxtjs.org/docs/get-started/installation)
 - [Style Guide](https://vuejs.org/v2/style-guide/)
+- [Atomic Design Pattern](https://atomicdesign.bradfrost.com/table-of-contents/)
 
 ## References
 
