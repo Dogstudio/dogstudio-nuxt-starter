@@ -1,6 +1,6 @@
 {
   "name": "@dogstudio/dogstudio-nuxt-starter",
-  "version": "1.0.0-beta",
+  "version": "1.0.0-beta.1",
   "license": "MIT",
   "private": true,
   "homepage": "https://github.com/Dogstudio/dogstudio-nuxt-starter",
@@ -20,8 +20,8 @@
     "node": ">=14.0.0"
   },
   "bugs": {
-    "url" : "https://github.com/Dogstudio/dogstudio-nuxt-starter/issues",
-    "email" : "devops@dogstudio.be"
+    "url": "https://github.com/Dogstudio/dogstudio-nuxt-starter/issues",
+    "email": "devops@dogstudio.be"
   },
   "repository": {
     "type": "git",
@@ -39,12 +39,12 @@
   "dependencies": {
     "@nuxtjs/axios": "^5.13.6",
     "@nuxtjs/i18n": "^7.2.0",
-    "npm-check-updates": "^12.0.3",
+    "npm-check-updates": "^12.0.5",
     "nuxt": "^2.15.8",
     "ua-parser-js": "^1.0.2"
   },
   "devDependencies": {
-    "@babel/eslint-parser": "^7.16.3",
+    "@babel/eslint-parser": "^7.16.5",
     "@nuxtjs/eslint-config": "^8.0.0",
     "@nuxtjs/eslint-module": "^3.0.2",
     "eslint": "^8.4.1",
