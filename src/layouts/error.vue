@@ -10,19 +10,19 @@ export default {
   props: {
     error: {
       type: Object,
-      required: true
-    }
+      required: true,
+    },
   },
-  head () {
+  head() {
     return {
       title: `${this.error.statusCode} | Dogstudio`,
       meta: [
         {
           hid: 'title',
-          content: `${this.error.statusCode} | Dogstudio`
-        }
-      ]
+          content: `${this.error.statusCode} | Dogstudio`,
+        },
+      ],
     }
-  }
+  },
 }
 </script>

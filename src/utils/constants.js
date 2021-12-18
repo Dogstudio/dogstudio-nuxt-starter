@@ -18,7 +18,7 @@ export const BREAKPOINTS = {
   L: 1024,
   XL: 1340,
   XXL: 1440,
-  XXXL: 1920
+  XXXL: 1920,
 }
 
 // UA Constants

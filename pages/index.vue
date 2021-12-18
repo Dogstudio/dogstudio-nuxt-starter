@@ -12,9 +12,9 @@ export default {
     meta: [
       {
         hid: 'title',
-        content: 'Home | Dogstudio'
-      }
-    ]
-  }
+        content: 'Home | Dogstudio',
+      },
+    ],
+  },
 }
 </script>

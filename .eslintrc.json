@@ -8,5 +8,15 @@
     "parser": "@babel/eslint-parser",
     "requireConfigFile": false
   },
-  "extends": ["@nuxtjs", "plugin:nuxt/recommended"]
+  "extends": [
+    "@nuxtjs",
+    "plugin:nuxt/recommended",
+    "plugin:prettier/recommended"
+  ],
+  "plugins": [
+    "prettier"
+  ],
+  "rules": {
+    "prettier/prettier": "error"
+  }
 }
