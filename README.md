@@ -3,7 +3,7 @@
 The Nuxt starter with all the features you'll need to build blazing-fast websites and applications.
 
 - Nuxt 2
-- Shaders
+- Prettier
 - SCSS/SASS
 
 ## Prerequisites
