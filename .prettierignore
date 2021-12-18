@@ -1,0 +1,14 @@
+# Nuxt
+/.nuxt
+/out
+
+# Build
+/dist
+/build
+
+# Front-End
+public/**/*.js
+public/**/*.ts
+
+src/glxp/**/*.ts
+src/glxp/**/*.js
