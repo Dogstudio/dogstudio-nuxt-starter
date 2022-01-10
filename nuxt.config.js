@@ -148,7 +148,12 @@ export default {
 
   // Enable auto-import of components within pages, layouts and other components
   // See: https://nuxtjs.org/docs/configuration-glossary/configuration-components
-  components: [{ path: '~/src/components', extensions: ['vue'] }],
+  components: [
+    { path: '~/src/components', extensions: ['vue'] },
+    { path: '~/src/components/modules', extensions: ['vue'] },
+    { path: '~/src/components/elements', extensions: ['vue'] },
+    { path: '~/src/components/partials', extensions: ['vue'] },
+  ],
 
   // Axios global configuration
   // See: https://axios.nuxtjs.org/options
