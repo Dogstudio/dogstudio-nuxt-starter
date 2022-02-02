@@ -138,6 +138,12 @@ export default {
   loading: false,
   loadingIndicator: false,
 
+  // Enable Nuxt router middlewares from the `middleware` directory
+  // See: https://nuxtjs.org/docs/directory-structure/middleware/#router-middleware
+  router: {
+    middleware: [],
+  },
+
   // Enable Nuxt plugins from the `plugins` directory
   // See: https://nuxtjs.org/docs/configuration-glossary/configuration-plugins
   plugins: [],
