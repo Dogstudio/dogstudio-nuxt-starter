@@ -7,12 +7,11 @@
   "description": "Opinionated Nuxt starter by Dogstudio",
   "scripts": {
     "dev": "nuxt",
+    "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs",
     "start": "nuxt start",
     "build": "nuxt build",
     "generate": "nuxt generate",
-    "upgrade": "ncu && npm i",
-    "lint": "npm run lint:js",
-    "lint:js": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs"
+    "upgrade": "ncu && npm i"
   },
   "engineStrict": true,
   "engines": {
