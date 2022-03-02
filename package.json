@@ -12,7 +12,7 @@
     "generate": "nuxt generate",
     "upgrade": "ncu && npm i",
     "lint": "npm run lint:js",
-    "lint:js": "eslint --ext \".js,.ts,.vue\" ."
+    "lint:js": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs"
   },
   "engineStrict": true,
   "engines": {
