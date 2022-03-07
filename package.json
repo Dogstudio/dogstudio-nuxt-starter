@@ -1,13 +1,13 @@
 {
   "name": "@dogstudio/dogstudio-nuxt-starter",
-  "version": "1.0.0-beta.4",
+  "version": "1.0.0-beta.5",
   "license": "MIT",
   "private": true,
   "homepage": "https://github.com/Dogstudio/dogstudio-nuxt-starter",
   "description": "Opinionated Nuxt starter by Dogstudio",
   "scripts": {
     "dev": "nuxt",
-    "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs",
+    "lint": "eslint --ext \".vue,.js,.jsx,.cjs,.mjs\" .",
     "start": "nuxt start",
     "build": "nuxt build",
     "generate": "nuxt generate",

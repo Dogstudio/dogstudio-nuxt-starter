@@ -18,7 +18,7 @@ git clone git@github.com:Dogstudio/dogstudio-nuxt-starter.git my-new-app
 
 ```bash
 cd my-new-app
-cp .env.example .env
+cp .env.example .env.local
 ```
 
 ```bash
@@ -53,11 +53,8 @@ npm run start
 # Run Nuxt in production-mode and generates static files.
 npm run generate
 
-# Run all linter scripts.
+# Run ESLint for JS & Vue files
 npm run lint
-
-# Run ESLint for `.js`, `.ts` and `.vue` files
-npm run lint:js
 
 # Upgrade the dependencies and devDependencies with interactive mode
 # See: https://www.npmjs.com/package/npm-check-updates

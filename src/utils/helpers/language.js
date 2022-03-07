@@ -1,11 +1,11 @@
 /**
- * Return the direction of the layout based on the languages of the user.
+ * Return the direction of the layout based on the active locale
  *
- * @param {String} lang - Language used
+ * @param {String} locale - Active locale
  * @return {String} Layout direction
  */
-export const getLanguageDirection = (lang) => {
-  return ['ar', 'az', 'dv', 'he', 'ku', 'fa', 'ur'].includes(lang)
+export const getLocaleDirection = (locale) => {
+  return ['ar', 'az', 'dv', 'he', 'ku', 'fa', 'ur'].includes(locale)
     ? 'rtl'
     : 'ltr'
 }
