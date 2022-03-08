@@ -7,7 +7,7 @@
   "description": "Opinionated Nuxt starter by Dogstudio",
   "scripts": {
     "dev": "nuxt",
-    "lint": "eslint --ext \".vue,.js,.jsx,.ts,.tsx,.cjs,.mjs\" .",
+    "lint": "eslint --ext \".vue,.ts,.js,.tsx,.jsx\" .",
     "start": "nuxt start",
     "build": "nuxt build",
     "generate": "nuxt generate",
