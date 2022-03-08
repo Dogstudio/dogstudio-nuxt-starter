@@ -1,3 +1,6 @@
+// Locales
+// import locales from './src/locales'
+
 /* prettier-ignore */
 export default {
   // Change default Nuxt SSR value
@@ -277,20 +280,13 @@ export default {
   // i18n: {
   //   lazy: true,
   //   langDir: '~/src/locales/',
-  //   locales: [
-  //     {
-  //       iso: 'en',
-  //       code: 'en',
-  //       file: 'en.js',
-  //       name: 'English',
-  //     },
-  //   ],
-  //   defaultLocale: 'en',
+  //   locales,
+  //   defaultLocale: process.env.APP_DEFAULT_LOCALE,
   //   detectBrowserLanguage: {
   //     useCookie: true,
   //     redirectOn: 'root',
   //     alwaysRedirect: true,
-  //     fallbackLocale: 'en',
+  //     fallbackLocale: process.env.APP_FALLBACK_LOCALE,
   //     cookieCrossOrigin: true,
   //   },
   // },
