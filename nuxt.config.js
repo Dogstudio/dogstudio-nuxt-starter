@@ -1,3 +1,4 @@
+/* prettier-ignore */
 export default {
   // Change default Nuxt SSR value
   ssr: true,
@@ -10,8 +11,9 @@ export default {
   // ----------
   // Public environment variables
   publicRuntimeConfig: {
-    appMode: process.env.APP_MODE || 'app',
-    appPreview: process.env.APP_PREVIEW || true,
+    mode: process.env.APP_MODE || 'app',
+    preview: process.env.APP_PREVIEW || true,
+    publicPath: process.env.PUBLIC_PATH || `http://localhost:${process.env.SERVER_PORT || 3000}`,
   },
 
   // Private environment variables
@@ -19,99 +21,123 @@ export default {
 
   // Define default meta for the application
   // See: https://nuxtjs.org/docs/configuration-glossary/configuration-head
-  head: {
-    title: 'Dogstudio | Nuxt Starter',
-    meta: [
-      {
-        charset: 'utf-8',
-      },
-      {
-        name: 'viewport',
-        content: 'width=device-width, initial-scale=1.0, user-scalable=no',
-      },
-      {
-        hid: 'title',
-        name: 'title',
-        content: 'Dogstudio | Nuxt Starter',
-      },
-      {
-        hid: 'description',
-        name: 'description',
-        content: 'Opinionated Nuxt starter by Dogstudio',
-      },
+  head() {
+    // i18n SEO
+    // See: https://i18n.nuxtjs.org/seo
+    let i18nHead = {
+      link: [],
+      meta: [],
+      htmlAttrs: [],
+    }
 
-      // Open Graph / Facebook
-      {
-        hid: 'og:type',
-        content: 'website',
-        property: 'og:type',
-      },
-      {
-        hid: 'og:url',
-        content: 'http://localhost:3000',
-        property: 'og:url',
-      },
-      {
-        hid: 'og:title',
-        content: 'Dogstudio | Nuxt Starter',
-        property: 'og:title',
-      },
-      {
-        hid: 'og:image',
-        content: '/assets/images/share.png',
-        property: 'og:image',
-      },
-      {
-        hid: 'og:description',
-        content: 'Opinionated Nuxt starter by Dogstudio',
-        property: 'og:description',
-      },
+    // Prevents i18head from crashing the all application
+    if (this.$nuxtI18nHead) {
+      i18nHead = this.$nuxtI18nHead({ addSeoAttributes: true })
+    }
 
-      // Twitter
-      {
-        hid: 'twitter:url',
-        content: 'http://localhost:3000',
-        property: 'twitter:url',
-      },
-      {
-        hid: 'twitter:card',
-        content: 'summary_large_image',
-        property: 'twitter:card',
-      },
-      {
-        hid: 'twitter:title',
-        content: 'Dogstudio | Nuxt Starter',
-        property: 'twitter:title',
-      },
-      {
-        hid: 'twitter:image',
-        content: '/assets/images/share.png',
-        property: 'twitter:image',
-      },
-      {
-        hid: 'twitter:description',
-        content: 'Opinionated Nuxt starter by Dogstudio',
-        property: 'twitter:description',
-      },
-    ],
+    return {
+      title: 'Dogstudio | Nuxt Starter',
+      meta: [
+        {
+          charset: 'utf-8',
+        },
+        {
+          name: 'viewport',
+          content: 'width=device-width, initial-scale=1.0, user-scalable=no',
+        },
+        {
+          hid: 'title',
+          name: 'title',
+          content: 'Dogstudio | Nuxt Starter',
+        },
+        {
+          hid: 'description',
+          name: 'description',
+          content: 'Opinionated Nuxt starter by Dogstudio',
+        },
 
-    // Links
-    link: [
-      {
-        rel: 'icon',
-        type: 'image/png',
-        href: '/favicon.ico',
-      },
-    ],
+        // Open Graph / Facebook
+        {
+          hid: 'og:type',
+          content: 'website',
+          property: 'og:type',
+        },
+        {
+          hid: 'og:url',
+          content: 'http://localhost:3000',
+          property: 'og:url',
+        },
+        {
+          hid: 'og:title',
+          content: 'Dogstudio | Nuxt Starter',
+          property: 'og:title',
+        },
+        {
+          hid: 'og:image',
+          content: '/assets/images/share.png',
+          property: 'og:image',
+        },
+        {
+          hid: 'og:description',
+          content: 'Opinionated Nuxt starter by Dogstudio',
+          property: 'og:description',
+        },
 
-    // Scripts
-    script: [
-      {
-        src: '/vendors/modernizr.js',
-        type: 'text/javascript',
-        async: true,
-      },
-    ],
+        // Twitter
+        {
+          hid: 'twitter:url',
+          content: 'http://localhost:3000',
+          property: 'twitter:url',
+        },
+        {
+          hid: 'twitter:card',
+          content: 'summary_large_image',
+          property: 'twitter:card',
+        },
+        {
+          hid: 'twitter:title',
+          content: 'Dogstudio | Nuxt Starter',
+          property: 'twitter:title',
+        },
+        {
+          hid: 'twitter:image',
+          content: '/assets/images/share.png',
+          property: 'twitter:image',
+        },
+        {
+          hid: 'twitter:description',
+          content: 'Opinionated Nuxt starter by Dogstudio',
+          property: 'twitter:description',
+        },
+
+        // i18n
+        ...i18nHead.meta,
+      ],
+
+      // Links
+      link: [
+        {
+          rel: 'icon',
+          type: 'image/png',
+          href: '/favicon.ico',
+        },
+
+        // i18n
+        ...i18nHead.link,
+      ],
+
+      // Scripts
+      script: [
+        {
+          src: '/vendors/modernizr.js',
+          type: 'text/javascript',
+          async: true,
+        },
+      ],
+
+      // Attributes
+      htmlAttrs: i18nHead.htmlAttrs,
+    }
   },
 
   // Define custom directories for the application
@@ -150,7 +176,7 @@ export default {
 
   // Enable Nuxt modules to extend its core functionalities
   // See: https://nuxtjs.org/docs/configuration-glossary/configuration-modules
-  modules: ['@nuxtjs/axios'],
+  modules: ['@nuxtjs/i18n', '@nuxtjs/axios'],
 
   // Enable auto-import of components within pages, layouts and other components
   // See: https://nuxtjs.org/docs/configuration-glossary/configuration-components
@@ -191,7 +217,7 @@ export default {
     },
 
     // Extend Webpack configuration
-    extend(config, context) {
+    extend(config, _) {
       // New Webpack rules
       const rules = [
         // Audio files
@@ -239,4 +265,33 @@ export default {
       config.resolve.modules.push('src')
     },
   },
+
+  // Server Options
+  // See: https://nuxtjs.org/docs/configuration-glossary/configuration-server#the-server-property
+  server: {
+    port: process.env.SERVER_PORT || 3000,
+  },
+
+  // Translations
+  // See: https://i18n.nuxtjs.org/
+  // i18n: {
+  //   lazy: true,
+  //   langDir: '~/src/locales/',
+  //   locales: [
+  //     {
+  //       iso: 'en',
+  //       code: 'en',
+  //       file: 'en.js',
+  //       name: 'English',
+  //     },
+  //   ],
+  //   defaultLocale: 'en',
+  //   detectBrowserLanguage: {
+  //     useCookie: true,
+  //     redirectOn: 'root',
+  //     alwaysRedirect: true,
+  //     fallbackLocale: 'en',
+  //     cookieCrossOrigin: true,
+  //   },
+  // },
 }

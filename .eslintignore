@@ -1,27 +1,26 @@
-dist/**/*.ts
-dist/**/*.js
-dist/**/*.jsx
-dist/**/*.cjs
-dist/**/*.mjs
-dist/**/*.vue
+# Nuxt
+/.nuxt
+/out
 
+# Build
+/dist
+/build
+
+# Front-End
 public/**/*.ts
 public/**/*.js
+public/**/*.tsx
 public/**/*.jsx
-public/**/*.cjs
-public/**/*.mjs
 public/**/*.vue
 
 src/glxp/**/*.ts
 src/glxp/**/*.js
+src/glxp/**/*.tsx
 src/glxp/**/*.jsx
-src/glxp/**/*.cjs
-src/glxp/**/*.mjs
 src/glxp/**/*.vue
 
 src/vendors/**/*.ts
 src/vendors/**/*.js
+src/vendors/**/*.tsx
 src/vendors/**/*.jsx
-src/vendors/**/*.cjs
-src/vendors/**/*.mjs
 src/vendors/**/*.vue

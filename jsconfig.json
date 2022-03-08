@@ -10,7 +10,9 @@
     }
   },
   "exclude": [
+    "out",
     "dist",
+    "build",
     ".nuxt",
     "node_modules"
   ]
