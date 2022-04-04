@@ -134,7 +134,6 @@ export default {
         {
           src: '/vendors/modernizr.js',
           type: 'text/javascript',
-          async: true,
         },
       ],
 
