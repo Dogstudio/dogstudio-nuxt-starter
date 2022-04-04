@@ -1,7 +1,7 @@
 <template>
-  <div>
+  <article class="error">
     <p>Error {{ error.statusCode }}</p>
-  </div>
+  </article>
 </template>
 
 <script>

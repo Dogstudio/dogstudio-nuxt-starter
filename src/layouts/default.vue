@@ -1,11 +1,15 @@
 <template>
   <main :dir="dir" class="site-wrapper">
     <Nuxt />
+
+    <template v-if="debug">
+      <Grid />
+    </template>
   </main>
 </template>
 
 <script>
-// Utilities
+// Utils
 import { getLocaleDirection } from 'utils/helpers/language'
 
 export default {
@@ -13,6 +17,7 @@ export default {
   data() {
     return {
       dir: getLocaleDirection(this.$i18n.locale),
+      debug: false,
     }
   },
   watch: {
@@ -21,10 +26,16 @@ export default {
       this.dir = getLocaleDirection(this.$i18n.locale)
     },
   },
+  mounted() {
+    const dev = process.env.NODE_ENV === 'development'
+    const debug = this.$route.query.debug === 'grid'
+
+    this.debug = dev && debug
+  }
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .site-wrapper {
   position: relative;
   overflow-x: hidden;

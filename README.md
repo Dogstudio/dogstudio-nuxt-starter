@@ -30,9 +30,9 @@ npm run dev
 
 We recommend the following documentations to master the stack:
 
-- [Vue](https://vuejs.org/v2/guide/)
-- [VueX](https://vuex.vuejs.org/)
+- [Vue](https://vuejs.org/guide/introduction.html)
 - [Nuxt](https://nuxtjs.org/docs/get-started/installation)
+- [Pinia](https://pinia.vuejs.org/introduction.html)
 - [Style Guide](https://vuejs.org/v2/style-guide/)
 - [Atomic Design Pattern](https://atomicdesign.bradfrost.com/table-of-contents/)
 
