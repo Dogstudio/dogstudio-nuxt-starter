@@ -1,6 +1,6 @@
 {
   "name": "@dogstudio/dogstudio-nuxt-starter",
-  "version": "1.0.0-beta.7",
+  "version": "1.0.0-beta.8",
   "license": "MIT",
   "private": true,
   "homepage": "https://github.com/Dogstudio/dogstudio-nuxt-starter",
@@ -15,7 +15,7 @@
   },
   "engineStrict": true,
   "engines": {
-    "npm": ">= 6.14.0",
+    "npm": ">=6.14.0",
     "node": ">=14.0.0"
   },
   "bugs": {
@@ -37,27 +37,27 @@
   ],
   "dependencies": {
     "@nuxtjs/axios": "^5.13.6",
-    "@nuxtjs/i18n": "^7.2.1",
+    "@nuxtjs/i18n": "^7.2.2",
     "fast-deep-equal": "^3.1.3",
-    "npm-check-updates": "^12.5.7",
     "nuxt": "^2.15.8",
     "ua-parser-js": "^1.0.2"
   },
   "devDependencies": {
-    "@babel/eslint-parser": "^7.17.0",
-    "@nuxtjs/eslint-config": "^9.0.0",
-    "@nuxtjs/eslint-module": "^3.0.2",
-    "eslint": "^8.12.0",
+    "@babel/eslint-parser": "^7.18.2",
+    "@nuxtjs/eslint-config": "^10.0.0",
+    "@nuxtjs/eslint-module": "^3.1.0",
+    "eslint": "^8.17.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-nuxt": "^3.2.0",
     "eslint-plugin-prettier": "^4.0.0",
-    "eslint-plugin-vue": "^8.5.0",
+    "eslint-plugin-vue": "^9.1.0",
     "fibers": "^5.0.1",
     "glslify-import": "^3.1.0",
     "glslify-loader": "^2.0.0",
+    "npm-check-updates": "^13.1.1",
     "prettier": "^2.6.2",
     "raw-loader": "^4.0.2",
-    "sass": "^1.49.11",
+    "sass": "^1.52.2",
     "sass-loader": "^10.2.0"
   }
 }
