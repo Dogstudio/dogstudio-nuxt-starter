@@ -12,7 +12,7 @@
     "start": "nuxt start",
     "build": "nuxt build",
     "generate": "nuxt generate",
-    "upgrade": "ncu && npm i"
+    "upgrade": "ncu"
   },
   "engineStrict": true,
   "engines": {
