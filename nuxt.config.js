@@ -177,7 +177,9 @@ export default {
 
   // Enable Nuxt plugins from the `plugins` directory
   // See: https://nuxtjs.org/docs/configuration-glossary/configuration-plugins
-  plugins: [],
+  plugins: [
+    { src: '~/src/plugins/real-height.js', mode: 'client' },
+  ],
 
   // Enable Nuxt modules to extend its core functionalities
   // See: https://nuxtjs.org/docs/configuration-glossary/configuration-modules
