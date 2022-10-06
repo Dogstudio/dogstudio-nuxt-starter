@@ -16,7 +16,9 @@ export default {
   publicRuntimeConfig: {
     mode: process.env.APP_MODE || 'app',
     preview: process.env.APP_PREVIEW || true,
-    publicPath: process.env.PUBLIC_PATH || `http://localhost:${process.env.SERVER_PORT || 3000}`,
+    publicPath:
+      process.env.PUBLIC_PATH ||
+      `http://localhost:${process.env.SERVER_PORT || 3000}`,
   },
 
   // Private environment variables
@@ -177,9 +179,7 @@ export default {
 
   // Enable Nuxt plugins from the `plugins` directory
   // See: https://nuxtjs.org/docs/configuration-glossary/configuration-plugins
-  plugins: [
-    { src: '~/src/plugins/real-height.js', mode: 'client' },
-  ],
+  plugins: [{ src: '~/src/plugins/real-height.js', mode: 'client' }],
 
   // Enable Nuxt modules to extend its core functionalities
   // See: https://nuxtjs.org/docs/configuration-glossary/configuration-modules
@@ -285,6 +285,7 @@ export default {
   //   lazy: true,
   //   langDir: '~/src/locales/',
   //   locales,
+  //   strategy: 'prefix',
   //   defaultLocale: process.env.APP_DEFAULT_LOCALE,
   //   detectBrowserLanguage: {
   //     useCookie: true,
