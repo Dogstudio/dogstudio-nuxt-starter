@@ -172,6 +172,9 @@ export default {
     middleware: [],
   },
 
+  // Ignore some files during build time
+  ignore: [],
+
   // Enable Nuxt plugins from the `plugins` directory
   // See: https://nuxtjs.org/docs/configuration-glossary/configuration-plugins
   plugins: [],
