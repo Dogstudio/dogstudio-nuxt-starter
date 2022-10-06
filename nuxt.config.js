@@ -254,6 +254,13 @@ export default {
             },
           ],
         },
+
+        // `.mjs` files
+        {
+          type: 'javascript/auto',
+          test: /\.mjs$/,
+          include: /node_modules/,
+        },
       ]
 
       // Add Webpack rules
