@@ -223,6 +223,9 @@ export default {
       },
     },
 
+    // Add exceptions
+    transpile: [],
+
     // Extend Webpack configuration
     extend(config, _) {
       // New Webpack rules
