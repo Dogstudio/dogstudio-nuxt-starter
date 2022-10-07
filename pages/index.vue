@@ -8,11 +8,11 @@
 export default {
   name: 'IndexPage',
   head: {
-    title: 'Home | Dogstudio',
+    title: 'Dogstudio | Nuxt Starter',
     meta: [
       {
         hid: 'title',
-        content: 'Home | Dogstudio',
+        content: 'Dogstudio | Nuxt Starter',
       },
     ],
   },
