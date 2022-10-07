@@ -1,7 +1,7 @@
 {
   "name": "@dogstudio/dogstudio-nuxt-starter",
   "type": "module",
-  "version": "1.0.0-beta.9",
+  "version": "1.0.0",
   "license": "MIT",
   "private": true,
   "homepage": "https://github.com/Dogstudio/dogstudio-nuxt-starter",
