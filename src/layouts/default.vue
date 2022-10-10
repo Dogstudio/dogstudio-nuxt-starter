@@ -1,6 +1,6 @@
 <template>
   <main :dir="dir" class="site-wrapper">
-    <Nuxt />
+    <slot />
 
     <template v-if="debug">
       <Grid />
@@ -10,28 +10,27 @@
 
 <script>
 // Utils
-import { getLocaleDirection } from 'utils/helpers/language'
+// import { getLocaleDirection } from 'src/utils/helpers/language'
 
 export default {
   name: 'DefaultLayout',
   data() {
     return {
-      dir: getLocaleDirection(this.$i18n.locale),
+      dir: 'ltr', // getLocaleDirection(this.$i18n.locale),
       debug: false,
     }
   },
   watch: {
-    /* eslint-disable */
-    '$i18n.locale': function () {
-      this.dir = getLocaleDirection(this.$i18n.locale)
-    },
+    // '$i18n.locale': function () {
+    //   this.dir = getLocaleDirection(this.$i18n.locale)
+    // },
   },
   mounted() {
     const dev = process.env.NODE_ENV === 'development'
     const debug = this.$route.query.debug === 'grid'
 
     this.debug = dev && debug
-  }
+  },
 }
 </script>
 
