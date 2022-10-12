@@ -71,9 +71,9 @@ The `dogstudio-nuxt-starter` repository is [MIT licensed](/LICENSE.md).
 
 ## Nuxt 3 Roadmap
 
-- :checkmark: Upgrade `dependencies` and `devDependencies`
-- :checkmark: Migrate architecture from Nuxt 2 to Nuxt 3
-- :checkmark: Migrate plugins from Nuxt 2 to Nuxt 3
+- :white_check_mark: Upgrade `dependencies` and `devDependencies`
+- :white_check_mark: Migrate architecture from Nuxt 2 to Nuxt 3
+- :white_check_mark: Migrate plugins from Nuxt 2 to Nuxt 3
 - :construction: Migrate stores from Nuxt 2 to Nuxt 3
 - :construction: Migrate locales from Nuxt 2 to Nuxt 3
 - :construction: Migrate Vue 2 to Vue 3 with Composition API
