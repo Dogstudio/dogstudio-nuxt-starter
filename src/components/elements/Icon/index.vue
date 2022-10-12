@@ -27,7 +27,9 @@ export default {
   },
   computed: {
     iconComponent() {
-      return () => import(`./Icons/icon-${this.name}`)
+      // TODO: Fix dynamic import for icons
+      return null
+      // return () => import(`./Icons/icon-${this.name}.vue`)
     },
   },
 }

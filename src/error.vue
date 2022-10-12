@@ -13,16 +13,5 @@ export default {
       required: true,
     },
   },
-  head() {
-    return {
-      title: `${this.error.statusCode} | Dogstudio`,
-      meta: [
-        {
-          hid: 'title',
-          content: `${this.error.statusCode} | Dogstudio`,
-        },
-      ],
-    }
-  },
 }
 </script>

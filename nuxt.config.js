@@ -3,9 +3,7 @@ import path from 'path'
 
 // Locales
 // import locales from './src/locales'
-// console.log(process.env)
 
-/* prettier-ignore */
 export default defineNuxtConfig({
   // Application configuration
   // See: https://v3.nuxtjs.org/api/configuration/nuxt-config#app
@@ -13,6 +11,9 @@ export default defineNuxtConfig({
     // Default `<head>` configuration
     // See: https://v3.nuxtjs.org/api/configuration/nuxt-config#head
     head: {
+      // Title
+      title: 'Dogstudio | Nuxt Starter',
+
       // Metadata
       meta: [
         {
@@ -91,36 +92,35 @@ export default defineNuxtConfig({
   // Build configuration
   // See: https://v3.nuxtjs.org/api/configuration/nuxt-config/#build
   build: {
-    // Add exceptions
-    // See: https://v3.nuxtjs.org/api/configuration/nuxt-config/#build
     transpile: [],
   },
 
-  // Builder configuration
-  // See: https://v3.nuxtjs.org/api/configuration/nuxt-config/#builder
-  // builder: '@nuxt/webpack-builder',
+  // Change `build` directory
+  buildDir: path.join(__dirname, '.nuxt'),
 
-  // Components configuration
-  // See: https://v3.nuxtjs.org/api/configuration/nuxt-config/#components
+  // Components auto-import configuration
+  // See: https://v3.nuxtjs.org/api/configuration/nuxt-config#components
   components: {
     dirs: [
-      'src/components',
-      'src/components/modules',
-      'src/components/elements',
-      'src/components/partials',
+      '~/components/elements',
+      '~/components/modules',
+      '~/components/partials',
+      '~/components',
     ],
   },
 
-  // Global CSS files included in every page
+  // Global CSS configuration
   // See: https://v3.nuxtjs.org/api/configuration/nuxt-config/#css
   css: ['@/styles/global.scss'],
 
-  // Define custom directories for the application
+  // Change directories
   // See: https://v3.nuxtjs.org/api/configuration/nuxt-config/#dir
   dir: {
-    layouts: 'src/layouts',
-    plugins: 'src/plugins',
-    middleware: 'src/middleware',
+    pages: path.join(__dirname, 'pages'),
+    public: path.join(__dirname, 'public'),
+    layouts: path.join(__dirname, 'src', 'layouts'),
+    plugins: path.join(__dirname, 'src', 'plugins'),
+    middleware: path.join(__dirname, 'src', 'middleware'),
   },
 
   // Ignore some files during build time
@@ -132,6 +132,10 @@ export default defineNuxtConfig({
   modules: [
     // '@nuxtjs/i18n',
   ],
+
+  // Change root directory
+  // See: https://v3.nuxtjs.org/api/configuration/nuxt-config#rootdir
+  rootDir: path.join(__dirname, 'src'),
 
   // Default runtime configuration
   // See: https://v3.nuxtjs.org/api/configuration/nuxt-config/#runtimeconfig
@@ -151,46 +155,7 @@ export default defineNuxtConfig({
   // See: https://v3.nuxtjs.org/api/configuration/nuxt-config/#telemetry
   telemetry: false,
 
-  // Vite configuration
-  vite: {
-    root: path.join(__dirname, 'src'),
-    resolve: {
-      alias: {
-        '@': path.join(__dirname, 'src'),
-        '@@': path.join(__dirname),
-      },
-    },
-    server: {
-      port: 3000,
-    },
-    plugins: [],
-    publicDir: path.resolve(__dirname, 'public'),
-  },
-
-  // Webpack configuration
-  // See: https://v3.nuxtjs.org/api/configuration/nuxt-config/#webpack-1
-  // webpack: {
-  //   // Customize the options of Nuxt's integrated webpack loaders
-  //   // See: https://v3.nuxtjs.org/api/configuration/nuxt-config/#loaders
-  //   loaders: {
-  //     vue: {
-  //       transformAssetUrls: {
-  //         audio: 'src',
-  //       },
-  //     },
-  //     imgUrl: {
-  //       limit: false,
-  //     },
-  //     fontUrl: {
-  //       limit: false,
-  //     },
-  //   },
-
-  //   // Add Webpack plugins
-  //   // See: https://v3.nuxtjs.org/api/configuration/nuxt-config/#plugins-2
-  //   plugins: [],
-  // },
-
+  // TODO: Bring back translations
   // Translations
   // See: https://i18n.nuxtjs.org/
   // i18n: {

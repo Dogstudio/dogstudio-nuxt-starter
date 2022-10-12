@@ -18,7 +18,7 @@ git clone git@github.com:Dogstudio/dogstudio-nuxt-starter.git my-new-app
 
 ```bash
 cd my-new-app
-cp .env.example .env.local
+cp .env.example .env
 ```
 
 ```bash
@@ -68,3 +68,20 @@ Please submit issues, pull requests or [contact us](devops@dogstudio.be). We are
 ## License
 
 The `dogstudio-nuxt-starter` repository is [MIT licensed](/LICENSE.md).
+
+## Nuxt 3 Roadmap
+
+- :checkmark: Upgrade `dependencies` and `devDependencies`
+- :checkmark: Migrate architecture from Nuxt 2 to Nuxt 3
+- :checkmark: Migrate plugins from Nuxt 2 to Nuxt 3
+- :construction: Migrate stores from Nuxt 2 to Nuxt 3
+- :construction: Migrate locales from Nuxt 2 to Nuxt 3
+- :construction: Migrate Vue 2 to Vue 3 with Composition API
+- :construction: Test icons imports
+- :construction: Test fonts imports
+- :construction: Test images imports
+- :construction: Test videos imports
+- :construction: Test audios imports
+- :construction: Test styles imports
+- :construction: Test shaders imports
+- :construction: Test components imports

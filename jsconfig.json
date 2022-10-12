@@ -15,6 +15,7 @@
     "dist",
     "build",
     ".nuxt",
+    ".output",
     "node_modules"
   ]
 }

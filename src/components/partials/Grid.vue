@@ -41,7 +41,7 @@
 
 <script>
 // Utils
-import Grid from '@/utils/helpers/grid'
+import Grid from '~/utils/helpers/grid'
 
 export default {
   name: 'SiteGrid',

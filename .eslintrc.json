@@ -4,10 +4,6 @@
     "node": true,
     "browser": true
   },
-  "parserOptions": {
-    "parser": "@babel/eslint-parser",
-    "requireConfigFile": false
-  },
   "plugins": [
     "prettier"
   ],
@@ -17,6 +13,7 @@
     "plugin:prettier/recommended"
   ],
   "rules": {
+    "no-undef": "off",
     "prettier/prettier": "error"
   }
 }

@@ -1,38 +1,28 @@
+<script setup>
+// Route datas
+const route = useRoute()
+
+// Variables
+const env = process.env.NODE_ENV
+const debug = route.query.debug || null
+
+// Booleans
+const dev = env === 'development'
+const enable = debug === 'grid'
+
+// Debugging
+const showGrid = useState(() => dev && enable)
+</script>
+
 <template>
-  <main :dir="dir" class="site-wrapper">
+  <main class="site-wrapper">
     <slot />
 
-    <template v-if="debug">
+    <template v-if="showGrid">
       <Grid />
     </template>
   </main>
 </template>
-
-<script>
-// Utils
-// import { getLocaleDirection } from 'src/utils/helpers/language'
-
-export default {
-  name: 'DefaultLayout',
-  data() {
-    return {
-      dir: 'ltr', // getLocaleDirection(this.$i18n.locale),
-      debug: false,
-    }
-  },
-  watch: {
-    // '$i18n.locale': function () {
-    //   this.dir = getLocaleDirection(this.$i18n.locale)
-    // },
-  },
-  mounted() {
-    const dev = process.env.NODE_ENV === 'development'
-    const debug = this.$route.query.debug === 'grid'
-
-    this.debug = dev && debug
-  },
-}
-</script>
 
 <style lang="scss">
 .site-wrapper {

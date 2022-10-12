@@ -44,7 +44,6 @@
     "ua-parser-js": "^1.0.2"
   },
   "devDependencies": {
-    "@nuxt/webpack-builder": "^3.0.0-rc.11",
     "@nuxtjs/eslint-config": "^11.0.0",
     "@nuxtjs/eslint-module": "^3.1.0",
     "eslint": "^8.25.0",
@@ -53,12 +52,8 @@
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-vue": "^9.6.0",
     "fibers": "^5.0.3",
-    "glslify-import": "^3.1.0",
-    "glslify-loader": "^2.0.0",
     "npm-check-updates": "^16.3.11",
     "prettier": "^2.7.1",
-    "raw-loader": "^4.0.2",
-    "sass": "^1.55.0",
-    "sass-loader": "^10.2.0"
+    "sass": "^1.55.0"
   }
 }
