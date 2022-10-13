@@ -1,7 +1,27 @@
+<script setup>
+// Properties
+const props = defineProps({
+  name: {
+    type: String,
+    required: true,
+  },
+  width: {
+    type: Number,
+    required: true,
+  },
+  height: {
+    type: Number,
+    required: true,
+  },
+})
+
+// Component
+const iconComponent = (await import(`./Icons/icon-${props.name}.vue`)).default
+</script>
+
 <template>
   <span
-    class="svg"
-    :class="`svg--${name}`"
+    :class="['svg', `svg--${name}`]"
     :style="{ width: `${width}px`, height: `${height}px` }"
   >
     <component :is="iconComponent" :width="width" :height="height" />
@@ -11,26 +31,5 @@
 <script>
 export default {
   name: 'IconElement',
-  props: {
-    name: {
-      type: String,
-      required: true,
-    },
-    width: {
-      type: Number,
-      required: true,
-    },
-    height: {
-      type: Number,
-      required: true,
-    },
-  },
-  computed: {
-    iconComponent() {
-      // TODO: Fix dynamic import for icons
-      return null
-      // return () => import(`./Icons/icon-${this.name}.vue`)
-    },
-  },
 }
 </script>

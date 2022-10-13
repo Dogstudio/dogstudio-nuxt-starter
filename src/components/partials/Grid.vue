@@ -1,3 +1,28 @@
+<script setup>
+// Utils
+import Grid from '@/utils/helpers/grid'
+
+// State
+const showToolbar = useState(() => true)
+
+// References
+const grid = ref(null)
+const toolbar = ref(null)
+
+// Methods
+const handleToolbarToggle = () => {
+  showToolbar.value = !showToolbar.value
+}
+
+// Lifecycle
+onMounted(() => {
+  const Helper = new Grid(grid.value, toolbar.value)
+
+  // Grid Observer
+  Helper.observe(document.documentElement, ['--grid-columns', '--grid-gutters'])
+})
+</script>
+
 <template>
   <section class="site-grid">
     <div ref="grid" class="site-grid__layout" />
@@ -40,30 +65,8 @@
 </template>
 
 <script>
-// Utils
-import Grid from '~/utils/helpers/grid'
-
 export default {
   name: 'SiteGrid',
-  data() {
-    return {
-      showToolbar: true,
-    }
-  },
-  mounted() {
-    const Helper = new Grid(this.$refs.grid, this.$refs.toolbar)
-
-    // Grid Observer
-    Helper.observe(document.documentElement, [
-      '--grid-columns',
-      '--grid-gutters',
-    ])
-  },
-  methods: {
-    handleToolbarToggle() {
-      this.showToolbar = !this.showToolbar
-    },
-  },
 }
 </script>
 

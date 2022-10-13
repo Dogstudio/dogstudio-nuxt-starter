@@ -1,17 +1,13 @@
 <script setup>
-// Route datas
-const route = useRoute()
+// Constants
+import { DEV } from '@/utils/constants'
 
 // Variables
-const env = process.env.NODE_ENV
-const debug = route.query.debug || null
+const route = useRoute()
+const enable = route.query.debug === 'grid'
 
-// Booleans
-const dev = env === 'development'
-const enable = debug === 'grid'
-
-// Debugging
-const showGrid = useState(() => dev && enable)
+// State
+const showGrid = useState(() => DEV && enable)
 </script>
 
 <template>

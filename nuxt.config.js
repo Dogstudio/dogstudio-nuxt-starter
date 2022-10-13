@@ -1,10 +1,16 @@
 // Dependencies
 import path from 'path'
 
-// Locales
-// import locales from './src/locales'
+// Vite Plugins
+import glsl from 'vite-plugin-glsl'
 
 export default defineNuxtConfig({
+  // Aliases configuration
+  alias: {
+    '@': path.join(__dirname, 'src'),
+    '@@': path.join(__dirname),
+  },
+
   // Application configuration
   // See: https://v3.nuxtjs.org/api/configuration/nuxt-config#app
   app: {
@@ -129,9 +135,17 @@ export default defineNuxtConfig({
 
   // Enable Nuxt modules to extend its core features
   // See: https://v3.nuxtjs.org/api/configuration/nuxt-config/#modules
-  modules: [
-    // '@nuxtjs/i18n',
-  ],
+  modules: [],
+
+  // Nitro configuration
+  // See: https://nitro.unjs.io/config/
+  nitro: {
+    output: {
+      dir: path.join(__dirname, '.output'),
+      server: path.join(__dirname, '.output', 'server'),
+      public: path.join(__dirname, '.output', '.public'),
+    },
+  },
 
   // Change root directory
   // See: https://v3.nuxtjs.org/api/configuration/nuxt-config#rootdir
@@ -143,7 +157,7 @@ export default defineNuxtConfig({
     public: {
       mode: 'app',
       preview: true,
-      publicPath: 'http://localhost:3000',
+      publicPath: `http://localhost:${process.env.PORT}`,
     },
   },
 
@@ -155,21 +169,9 @@ export default defineNuxtConfig({
   // See: https://v3.nuxtjs.org/api/configuration/nuxt-config/#telemetry
   telemetry: false,
 
-  // TODO: Bring back translations
-  // Translations
-  // See: https://i18n.nuxtjs.org/
-  // i18n: {
-  //   lazy: true,
-  //   langDir: '~/src/locales/',
-  //   locales,
-  //   strategy: 'prefix',
-  //   defaultLocale: process.env.CONFIG_DEFAULT_LOCALE,
-  //   detectBrowserLanguage: {
-  //     useCookie: true,
-  //     redirectOn: 'root',
-  //     alwaysRedirect: true,
-  //     fallbackLocale: process.env.CONFIG_FALLBACK_LOCALE,
-  //     cookieCrossOrigin: true,
-  //   },
-  // },
+  // Vite configuration
+  // See: https://v3.nuxtjs.org/api/configuration/nuxt-config#vite
+  vite: {
+    plugins: [glsl()],
+  },
 })

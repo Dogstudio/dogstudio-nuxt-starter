@@ -4,6 +4,12 @@
     "node": true,
     "browser": true
   },
+  "parser": "vue-eslint-parser",
+  "parserOptions": {
+    "parser": "espree",
+    "sourceType": "module",
+    "ecmaVersion": "latest"
+  },
   "plugins": [
     "prettier"
   ],

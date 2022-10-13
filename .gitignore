@@ -27,9 +27,6 @@
 .env.production
 .env.development
 
-# Bark
-bark.yml
-
 # IDEs
 /.idea
 /.vscode
