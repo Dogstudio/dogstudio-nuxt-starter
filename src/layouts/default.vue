@@ -12,6 +12,9 @@
 // Utils
 import { getLocaleDirection } from 'utils/helpers/language'
 
+// Constants
+import { DEV } from 'utils/constants'
+
 export default {
   name: 'DefaultLayout',
   data() {
@@ -27,7 +30,7 @@ export default {
     },
   },
   mounted() {
-    const dev = process.env.NODE_ENV === 'development'
+    const dev = DEV
     const debug = this.$route.query.debug === 'grid'
 
     this.debug = dev && debug

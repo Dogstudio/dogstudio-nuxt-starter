@@ -1,4 +1,5 @@
-function sayHello() {
+// prettier-ignore
+export default () => {
   // Chrome Log
   if (navigator.userAgent.toLowerCase().includes('chrome')) {
     const args = [
@@ -18,5 +19,3 @@ function sayHello() {
     window.console.log('Made with love ♥ Dogstudio - http://www.dogstudio.co/')
   }
 }
-
-export default sayHello()
