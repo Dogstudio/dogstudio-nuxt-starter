@@ -6,18 +6,43 @@ import { DEV } from '@/utils/constants'
 const route = useRoute()
 const enable = route.query.debug === 'grid'
 
+// i18n / SEO
+const head = useLocaleHead({
+  addDirAttribute: true,
+  addSeoAttributes: true,
+  identifierAttribute: 'id',
+})
+
 // State
 const showGrid = useState(() => DEV && enable)
 </script>
 
 <template>
-  <main class="site-wrapper">
-    <slot />
+  <Html :lang="head.htmlAttrs.lang" :dir="head.htmlAttrs.dir">
+    <Head>
+      <template v-for="link in head.link" :key="link.id">
+        <Link
+          :id="link.id"
+          :rel="link.rel"
+          :href="link.href"
+          :hreflang="link.hreflang"
+        />
+      </template>
+      <template v-for="meta in head.meta" :key="meta.id">
+        <Meta :id="meta.id" :property="meta.property" :content="meta.content" />
+      </template>
+    </Head>
 
-    <template v-if="showGrid">
-      <Grid />
-    </template>
-  </main>
+    <Body>
+      <main class="site-wrapper">
+        <slot />
+
+        <template v-if="showGrid">
+          <Grid />
+        </template>
+      </main>
+    </Body>
+  </Html>
 </template>
 
 <style lang="scss">

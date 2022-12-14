@@ -9,7 +9,9 @@ defineProps({
 </script>
 
 <template>
-  <article class="error">
-    <p>Error {{ error.statusCode }}</p>
-  </article>
+  <NuxtLayout>
+    <article class="error">
+      <p>Error {{ error.statusCode }}</p>
+    </article>
+  </NuxtLayout>
 </template>

@@ -12,6 +12,6 @@ const description = ref('Opinionated Nuxt starter by Dogstudio')
       <Meta name="description" :content="description" />
     </Head>
 
-    <h1>Hello World!</h1>
+    <h1>{{ $t('welcome') }}</h1>
   </article>
 </template>

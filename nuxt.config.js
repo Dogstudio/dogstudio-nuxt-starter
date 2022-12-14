@@ -4,6 +4,9 @@ import path from 'path'
 // Vite Plugins
 import glsl from 'vite-plugin-glsl'
 
+// Locales
+import locales from './src/locales'
+
 export default defineNuxtConfig({
   // Aliases configuration
   alias: {
@@ -12,10 +15,10 @@ export default defineNuxtConfig({
   },
 
   // Application configuration
-  // See: https://v3.nuxtjs.org/api/configuration/nuxt-config#app
+  // See: https://nuxt.com/docs/api/configuration/nuxt-config#app
   app: {
     // Default `<head>` configuration
-    // See: https://v3.nuxtjs.org/api/configuration/nuxt-config#head
+    // See: https://nuxt.com/docs/api/configuration/nuxt-config#head
     head: {
       // Title
       title: 'Dogstudio | Nuxt Starter',
@@ -37,7 +40,7 @@ export default defineNuxtConfig({
           property: 'og:type',
         },
         {
-          content: 'http://localhost:3000',
+          content: process.env.NUXT_PUBLIC_PUBLIC_PATH,
           property: 'og:url',
         },
         {
@@ -55,7 +58,7 @@ export default defineNuxtConfig({
 
         // Twitter
         {
-          content: 'http://localhost:3000',
+          content: process.env.NUXT_PUBLIC_PUBLIC_PATH,
           property: 'twitter:url',
         },
         {
@@ -96,7 +99,7 @@ export default defineNuxtConfig({
   },
 
   // Build configuration
-  // See: https://v3.nuxtjs.org/api/configuration/nuxt-config/#build
+  // See: https://nuxt.com/docs/api/configuration/nuxt-config/#build
   build: {
     transpile: [],
   },
@@ -105,7 +108,7 @@ export default defineNuxtConfig({
   buildDir: path.join(__dirname, '.nuxt'),
 
   // Components auto-import configuration
-  // See: https://v3.nuxtjs.org/api/configuration/nuxt-config#components
+  // See: https://nuxt.com/docs/api/configuration/nuxt-config#components
   components: {
     dirs: [
       '~/components/elements',
@@ -116,11 +119,11 @@ export default defineNuxtConfig({
   },
 
   // Global CSS configuration
-  // See: https://v3.nuxtjs.org/api/configuration/nuxt-config/#css
+  // See: https://nuxt.com/docs/api/configuration/nuxt-config/#css
   css: ['@/styles/global.scss'],
 
   // Change directories
-  // See: https://v3.nuxtjs.org/api/configuration/nuxt-config/#dir
+  // See: https://nuxt.com/docs/api/configuration/nuxt-config/#dir
   dir: {
     pages: path.join(__dirname, 'pages'),
     public: path.join(__dirname, 'public'),
@@ -130,48 +133,69 @@ export default defineNuxtConfig({
   },
 
   // Ignore some files during build time
-  // See: https://v3.nuxtjs.org/api/configuration/nuxt-config/#ignore
+  // See: https://nuxt.com/docs/api/configuration/nuxt-config/#ignore
   ignore: [],
 
   // Enable Nuxt modules to extend its core features
-  // See: https://v3.nuxtjs.org/api/configuration/nuxt-config/#modules
-  modules: [],
+  // See: https://nuxt.com/docs/api/configuration/nuxt-config/#modules
+  modules: [
+    '@nuxtjs/i18n',
+  ],
 
   // Nitro configuration
   // See: https://nitro.unjs.io/config/
   nitro: {
     output: {
       dir: path.join(__dirname, '.output'),
-      server: path.join(__dirname, '.output', 'server'),
-      public: path.join(__dirname, '.output', '.public'),
+      serverDir: path.join(__dirname, '.output', 'server'),
+      publicDir: path.join(__dirname, '.output', 'public'),
     },
   },
 
   // Change root directory
-  // See: https://v3.nuxtjs.org/api/configuration/nuxt-config#rootdir
+  // See: https://nuxt.com/docs/api/configuration/nuxt-config#rootdir
   rootDir: path.join(__dirname, 'src'),
 
   // Default runtime configuration
-  // See: https://v3.nuxtjs.org/api/configuration/nuxt-config/#runtimeconfig
+  // See: https://nuxt.com/docs/api/configuration/nuxt-config/#runtimeconfig
   runtimeConfig: {
     public: {
       mode: 'app',
       preview: true,
-      publicPath: `http://localhost:${process.env.PORT}`,
+      publicPath: process.env.NUXT_PUBLIC_PUBLIC_PATH,
     },
   },
 
   // Rendering configuration
-  // See: https://v3.nuxtjs.org/api/configuration/nuxt-config/#ssr
+  // See: https://nuxt.com/docs/api/configuration/nuxt-config/#ssr
   ssr: true,
 
   // Enable / Disable Nuxt telemetry
-  // See: https://v3.nuxtjs.org/api/configuration/nuxt-config/#telemetry
+  // See: https://nuxt.com/docs/api/configuration/nuxt-config/#telemetry
   telemetry: false,
 
   // Vite configuration
-  // See: https://v3.nuxtjs.org/api/configuration/nuxt-config#vite
+  // See: https://nuxt.com/docs/api/configuration/nuxt-config#vite
   vite: {
     plugins: [glsl()],
+  },
+
+  // i18n configuration
+  i18n: {
+    lazy: true,
+    langDir: 'locales',
+    locales,
+    baseUrl: process.env.NUXT_PUBLIC_PUBLIC_PATH,
+    vueI18n: {
+      fallbackLocale: process.env.CONFIG_FALLBACK_LOCALE,
+    },
+    strategy: 'prefix',
+    defaultLocale: process.env.CONFIG_DEFAULT_LOCALE,
+    detectBrowserLanguage: {
+      useCookie: true,
+      redirectOn: 'root',
+      alwaysRedirect: true,
+      cookieCrossOrigin: true,
+    },
   },
 })
