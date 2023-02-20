@@ -5,12 +5,12 @@
 /coverage
 
 # Nuxt
-/.nuxt
-/out
+**/.nuxt
+**/out
 
 # Build
-/dist
-/build
+**/dist
+**/build
 
 # Misc
 .DS_Store
