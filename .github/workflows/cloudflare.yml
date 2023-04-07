@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Install Node.js
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v3
         with:
           node-version: 16.x.x
 
@@ -30,6 +30,14 @@ jobs:
         run: npm run build
         env:
           NITRO_PRESET: cloudflare-pages
+
+      - name: Create Cloudflare Project
+        uses: cloudflare/wrangler-action@2.0.0
+        with:
+          apiToken: ${{ secrets.CF_API_TOKEN }}
+          accountId: ${{ secrets.CF_ACCOUNT_ID }}
+          command: pages project create ${{ github.event.repository.name }} --production-branch=demo
+        continue-on-error: true
 
       - name: Publish to Cloudflare
         uses: cloudflare/wrangler-action@2.0.0
