@@ -98,23 +98,14 @@ export default defineNuxtConfig({
     }
   },
 
-  // Build configuration
-  // See: https://nuxt.com/docs/api/configuration/nuxt-config/#build
-  build: {
-    transpile: [],
-  },
-
-  // Change `build` directory
-  buildDir: path.join(__dirname, '.nuxt'),
-
   // Components auto-import configuration
   // See: https://nuxt.com/docs/api/configuration/nuxt-config#components
   components: {
     dirs: [
-      '~/components/elements',
-      '~/components/modules',
-      '~/components/partials',
-      '~/components',
+      '~/src/components/elements',
+      '~/src/components/modules',
+      '~/src/components/partials',
+      '~/src/components',
     ],
   },
 
@@ -125,16 +116,11 @@ export default defineNuxtConfig({
   // Change directories
   // See: https://nuxt.com/docs/api/configuration/nuxt-config/#dir
   dir: {
-    pages: path.join(__dirname, 'pages'),
-    public: path.join(__dirname, 'public'),
-    layouts: path.join(__dirname, 'src', 'layouts'),
-    plugins: path.join(__dirname, 'src', 'plugins'),
-    middleware: path.join(__dirname, 'src', 'middleware'),
+    assets: 'src/assets',
+    layouts: 'src/layouts',
+    plugins: 'src/plugins',
+    middleware: 'src/middleware',
   },
-
-  // Ignore some files during build time
-  // See: https://nuxt.com/docs/api/configuration/nuxt-config/#ignore
-  ignore: [],
 
   // Enable Nuxt modules to extend its core features
   // See: https://nuxt.com/docs/api/configuration/nuxt-config/#modules
@@ -150,10 +136,6 @@ export default defineNuxtConfig({
     },
   },
 
-  // Change root directory
-  // See: https://nuxt.com/docs/api/configuration/nuxt-config#rootdir
-  rootDir: path.join(__dirname, 'src'),
-
   // Default runtime configuration
   // See: https://nuxt.com/docs/api/configuration/nuxt-config/#runtimeconfig
   runtimeConfig: {
@@ -164,9 +146,9 @@ export default defineNuxtConfig({
     },
   },
 
-  // Rendering configuration
-  // See: https://nuxt.com/docs/api/configuration/nuxt-config/#ssr
-  ssr: true,
+  // Change source directory
+  // See: https://nuxt.com/docs/api/configuration/nuxt-config#srcdir
+  // srcDir: 'src/',
 
   // Enable / Disable Nuxt telemetry
   // See: https://nuxt.com/docs/api/configuration/nuxt-config/#telemetry
@@ -179,9 +161,10 @@ export default defineNuxtConfig({
   },
 
   // i18n configuration
+  // See: https://v8.i18n.nuxtjs.org/getting-started/basic-usage
   i18n: {
     lazy: true,
-    langDir: 'locales',
+    langDir: 'src/locales',
     locales,
     baseUrl: process.env.NUXT_PUBLIC_PUBLIC_PATH,
     vueI18n: {
