@@ -8,7 +8,8 @@
         "pages/*"
       ]
     },
-    "jsx": "preserve"
+    "jsx": "preserve",
+    "allowJs": true,
   },
   "exclude": [
     "out",
