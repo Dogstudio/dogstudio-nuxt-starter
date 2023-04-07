@@ -11,7 +11,6 @@ const enable = route.query.debug === 'grid'
 
 // i18n / SEO
 const head = useLocaleHead({
-  addDirAttribute: true,
   addSeoAttributes: true,
   identifierAttribute: 'id',
 })
