@@ -1,1 +1,8 @@
-// Silence is golden.
+@font-face {
+  font-family: 'Avenir';
+  font-weight: 400;
+  font-style: normal;
+  font-display: fallback;
+  src: url('~/assets/fonts/Avenir-400.woff2') format('woff2'),
+       url('~/assets/fonts/Avenir-400.woff') format('woff');
+}

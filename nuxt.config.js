@@ -10,8 +10,11 @@ import locales from './src/locales'
 export default defineNuxtConfig({
   // Aliases configuration
   alias: {
-    '@': path.join(__dirname, 'src'),
-    '@@': path.join(__dirname),
+    '~': path.resolve(__dirname, 'src'),
+    '@': path.resolve(__dirname, 'src'),
+    '~~': path.resolve(__dirname),
+    '@@': path.resolve(__dirname),
+    'assets': path.resolve(__dirname, 'src', 'assets'),
   },
 
   // Application configuration
@@ -102,10 +105,10 @@ export default defineNuxtConfig({
   // See: https://nuxt.com/docs/api/configuration/nuxt-config#components
   components: {
     dirs: [
-      '~/src/components/elements',
-      '~/src/components/modules',
-      '~/src/components/partials',
-      '~/src/components',
+      '~/components/elements',
+      '~/components/modules',
+      '~/components/partials',
+      '~/components',
     ],
   },
 
@@ -116,7 +119,6 @@ export default defineNuxtConfig({
   // Change directories
   // See: https://nuxt.com/docs/api/configuration/nuxt-config/#dir
   dir: {
-    assets: 'src/assets',
     layouts: 'src/layouts',
     plugins: 'src/plugins',
     middleware: 'src/middleware',
