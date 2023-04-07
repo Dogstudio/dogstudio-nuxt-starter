@@ -20,7 +20,7 @@
 *.log
 
 # Local `env` Files
-.env
+# .env
 .env.test
 .env.local
 .env.*.local
@@ -35,4 +35,4 @@
 .vercel
 
 # Samples
-sample.*
+# sample.*
