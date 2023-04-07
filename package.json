@@ -16,8 +16,7 @@
   },
   "engineStrict": true,
   "engines": {
-    "npm": ">=6.14.0",
-    "node": ">=14.0.0"
+    "node": "16.x.x"
   },
   "bugs": {
     "url": "https://github.com/Dogstudio/dogstudio-nuxt-starter/issues",
