@@ -147,8 +147,6 @@ export default defineNuxtConfig({
   nitro: {
     output: {
       dir: path.join(__dirname, '.output'),
-      serverDir: path.join(__dirname, '.output', 'server'),
-      publicDir: path.join(__dirname, '.output', 'public'),
     },
   },
 
