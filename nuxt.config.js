@@ -146,10 +146,6 @@ export default defineNuxtConfig({
     },
   },
 
-  // Change source directory
-  // See: https://nuxt.com/docs/api/configuration/nuxt-config#srcdir
-  // srcDir: 'src/',
-
   // Enable / Disable Nuxt telemetry
   // See: https://nuxt.com/docs/api/configuration/nuxt-config/#telemetry
   telemetry: false,
