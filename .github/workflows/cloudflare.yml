@@ -1,0 +1,38 @@
+name: Build & CF Deploy
+
+on:
+  push:
+    branches:
+      - demo
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node }}
+
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Cache node_modules
+        uses: actions/cache@v3
+        with:
+          path: node_modules
+          key: ${{ matrix.os }}-node-v${{ matrix.node }}-deps-${{ hashFiles(format('{0}{1}', github.workspace, '/package-lock.json')) }}
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Build
+        run: npm run build
+        env:
+          NITRO_PRESET: cloudflare-pages
+
+      - name: Publish to Cloudflare
+        uses: cloudflare/wrangler-action@2.0.0
+        with:
+          apiToken: ${{ secrets.CF_API_TOKEN }}
+          command: pages publish --project-name=${{ github.event.repository.name }}
