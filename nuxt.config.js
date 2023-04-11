@@ -141,8 +141,7 @@ export default defineNuxtConfig({
   runtimeConfig: {
     public: {
       mode: 'app',
-      preview: true,
-      publicPath: process.env.NUXT_PUBLIC_PUBLIC_PATH,
+      publicPath: 'http://localhost:3000/',
     },
   },
 
@@ -162,12 +161,12 @@ export default defineNuxtConfig({
     lazy: true,
     langDir: 'src/locales',
     locales,
-    baseUrl: process.env.NUXT_PUBLIC_PUBLIC_PATH,
+    baseUrl: process.env.NUXT_PUBLIC_PUBLIC_PATH || 'http://localhost:3000/',
     vueI18n: {
-      fallbackLocale: process.env.CONFIG_FALLBACK_LOCALE,
+      fallbackLocale: process.env.I18N_FALLBACK_LOCALE,
     },
     strategy: 'prefix',
-    defaultLocale: process.env.CONFIG_DEFAULT_LOCALE,
+    defaultLocale: process.env.I18N_DEFAULT_LOCALE,
     detectBrowserLanguage: {
       useCookie: true,
       redirectOn: 'root',
