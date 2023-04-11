@@ -31,10 +31,10 @@ jobs:
         run: npm install
 
       - name: Debug
-        run: echo ${{ vars.NUXT_PUBLIC_MODE }}
+        run: echo ${{ secrets.NUXT_PUBLIC_MODE }}
 
       - name: Debug
-        run: echo ${{ vars.NUXT_PUBLIC_PUBLIC_PATH }}
+        run: echo ${{ secrets.NUXT_PUBLIC_PUBLIC_PATH }}
 
       - name: Build
         run: npm run build
