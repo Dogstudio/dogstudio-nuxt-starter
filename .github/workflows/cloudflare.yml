@@ -37,9 +37,6 @@ jobs:
       - name: Install Dependencies
         run: npm install
 
-      - name: Debug
-        run: echo "$NUXT_PUBLIC_PUBLIC_PATH"
-
       - name: Build
         run: npm run build
         env:
@@ -52,6 +49,14 @@ jobs:
           accountId: ${{ secrets.CF_ACCOUNT_ID }}
           command: pages project create ${{ github.event.repository.name }} --production-branch=deploy/production
         continue-on-error: true
+
+      - name: Put Secrets
+        uses: cloudflare/wrangler-action@2.0.0
+        with:
+          apiToken: ${{ secrets.CF_API_TOKEN }}
+          secrets: NUXT_PUBLIC_MODE
+        env:
+          NUXT_PUBLIC_MODE: ${{ vars.NUXT_PUBLIC_MODE }}
 
       - name: Publish to CF Pages
         uses: cloudflare/wrangler-action@2.0.0
