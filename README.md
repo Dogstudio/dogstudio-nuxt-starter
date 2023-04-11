@@ -98,4 +98,4 @@ The `dogstudio-nuxt-starter` repository is [MIT licensed](/LICENSE.md).
 - :white_check_mark: Test shaders imports
 - :white_check_mark: Test components imports
 - :white_check_mark: Test environment variables
-- :construction: Migrate locales from Nuxt 2 to Nuxt 3
+- :construction: Upgrade `@nuxtjs/i18n` to next stable version
