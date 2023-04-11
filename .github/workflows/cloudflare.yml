@@ -33,6 +33,9 @@ jobs:
       - name: Debug
         run: echo ${{ vars.NUXT_PUBLIC_MODE }}
 
+      - name: Debug
+        run: echo ${{ vars.NUXT_PUBLIC_PUBLIC_PATH }}
+
       - name: Build
         run: npm run build
         env:
