@@ -1,3 +1,8 @@
+<script setup>
+const config = useRuntimeConfig()
+console.log(config.public.mode)
+</script>
+
 <template>
   <section class="site-welcome">
     <div class="container">
@@ -48,12 +53,6 @@
     </div>
   </section>
 </template>
-
-<script>
-export default {
-  name: 'SiteWelcome',
-}
-</script>
 
 <style lang="scss">
 @use 'sass:math';
