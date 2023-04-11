@@ -7,8 +7,6 @@ import glsl from 'vite-plugin-glsl'
 // Locales
 import locales from './src/locales'
 
-console.log(process.env)
-
 export default defineNuxtConfig({
   // Aliases configuration
   alias: {
@@ -144,8 +142,8 @@ export default defineNuxtConfig({
   // See: https://nuxt.com/docs/api/configuration/nuxt-config/#runtimeconfig
   runtimeConfig: {
     public: {
-      mode: 'app',
-      publicPath: 'http://localhost:3000/',
+      mode: process.env.NUXT_PUBLIC_MODE || 'app',
+      publicPath: process.env.NUXT_PUBLIC_PUBLIC_PATH || 'http://localhost:3000/',
     },
   },
 

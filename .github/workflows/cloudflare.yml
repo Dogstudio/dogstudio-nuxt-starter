@@ -34,7 +34,7 @@ jobs:
       - name: Environment Variables
         run: echo "${{ vars.ENV_FILE }}" > .env
 
-      - name: Build
+      - name: Create Bundle
         run: npm run build
         env:
           NITRO_PRESET: cloudflare-pages
