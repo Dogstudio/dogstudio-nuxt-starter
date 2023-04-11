@@ -7,6 +7,8 @@ import glsl from 'vite-plugin-glsl'
 // Locales
 import locales from './src/locales'
 
+console.log(process.env)
+
 export default defineNuxtConfig({
   // Aliases configuration
   alias: {
