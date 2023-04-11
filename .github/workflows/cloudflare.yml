@@ -45,4 +45,4 @@ jobs:
         with:
           apiToken: ${{ secrets.CF_API_TOKEN }}
           accountId: ${{ secrets.CF_ACCOUNT_ID }}
-          command: pages publish .output --project-name=${{ github.event.repository.name }}
+          command: pages publish .output --project-name=${{ github.event.repository.name }} --production-branch=deploy/production
