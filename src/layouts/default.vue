@@ -1,42 +1,51 @@
-<template>
-  <main :dir="dir" class="site-wrapper">
-    <Nuxt />
-
-    <template v-if="debug">
-      <Grid />
-    </template>
-  </main>
-</template>
-
-<script>
-// Utils
-import { getLocaleDirection } from 'utils/helpers/language'
-
+<script setup>
 // Constants
-import { DEV } from 'utils/constants'
+import { DEV } from '@/utils/constants'
 
-export default {
-  name: 'DefaultLayout',
-  data() {
-    return {
-      dir: getLocaleDirection(this.$i18n.locale),
-      debug: false,
-    }
-  },
-  watch: {
-    /* eslint-disable */
-    '$i18n.locale': function () {
-      this.dir = getLocaleDirection(this.$i18n.locale)
-    },
-  },
-  mounted() {
-    const dev = DEV
-    const debug = this.$route.query.debug === 'grid'
+// Utilities
+import { getLocaleDirection } from '@/utils/helpers/i18n'
 
-    this.debug = dev && debug
-  }
-}
+// Variables
+const route = useRoute()
+const enable = route.query.debug === 'grid'
+
+// i18n / SEO
+const head = useLocaleHead({
+  addSeoAttributes: true,
+  identifierAttribute: 'id',
+})
+
+// State
+const showGrid = useState(() => DEV && enable)
 </script>
+
+<template>
+  <Html :lang="head.htmlAttrs.lang" :dir="getLocaleDirection($i18n.locale)">
+    <Head>
+      <template v-for="link in head.link" :key="link.id">
+        <Link
+          :id="link.id"
+          :rel="link.rel"
+          :href="link.href"
+          :hreflang="link.hreflang"
+        />
+      </template>
+      <template v-for="meta in head.meta" :key="meta.id">
+        <Meta :id="meta.id" :property="meta.property" :content="meta.content" />
+      </template>
+    </Head>
+
+    <Body>
+      <main class="site-wrapper">
+        <slot />
+
+        <template v-if="showGrid">
+          <Grid />
+        </template>
+      </main>
+    </Body>
+  </Html>
+</template>
 
 <style lang="scss">
 .site-wrapper {

@@ -1,5 +1,5 @@
 // prettier-ignore
-export default () => {
+export default defineNuxtPlugin(() => {
   // Chrome Log
   if (navigator.userAgent.toLowerCase().includes('chrome')) {
     const args = [
@@ -18,4 +18,4 @@ export default () => {
     // Default Message
     window.console.log('Made with love ♥ Dogstudio - http://www.dogstudio.co/')
   }
-}
+})

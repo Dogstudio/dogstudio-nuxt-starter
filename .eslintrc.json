@@ -4,9 +4,11 @@
     "node": true,
     "browser": true
   },
+  "parser": "vue-eslint-parser",
   "parserOptions": {
-    "parser": "@babel/eslint-parser",
-    "requireConfigFile": false
+    "parser": "espree",
+    "sourceType": "module",
+    "ecmaVersion": "latest"
   },
   "plugins": [
     "prettier"
@@ -17,6 +19,7 @@
     "plugin:prettier/recommended"
   ],
   "rules": {
+    "no-undef": "off",
     "prettier/prettier": "error"
   }
 }

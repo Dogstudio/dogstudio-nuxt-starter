@@ -2,7 +2,7 @@
 
 The Nuxt starter with all the features you'll need to build blazing-fast websites and applications.
 
-- Nuxt 2
+- Nuxt 3
 - Prettier
 - SCSS/SASS
 
@@ -14,11 +14,12 @@ The Nuxt starter with all the features you'll need to build blazing-fast website
 
 ```bash
 git clone git@github.com:Dogstudio/dogstudio-nuxt-starter.git my-new-app
+git checkout next
 ```
 
 ```bash
 cd my-new-app
-cp .env.example .env.local
+cp .env.example .env
 ```
 
 ```bash
@@ -31,9 +32,9 @@ npm run dev
 We recommend the following documentations to master the stack:
 
 - [Vue](https://vuejs.org/guide/introduction.html)
-- [Nuxt](https://nuxtjs.org/docs/get-started/installation)
-- [Pinia](https://pinia.vuejs.org/introduction.html)
-- [Style Guide](https://vuejs.org/v2/style-guide/)
+- [Nuxt](https://v3.nuxtjs.org/getting-started/introduction)
+- [Pinia](https://pinia.vuejs.org/ssr/nuxt.html#installation)
+- [Style Guide](https://vuejs.org/style-guide/)
 - [Atomic Design Pattern](https://atomicdesign.bradfrost.com/table-of-contents/)
 
 ## References
@@ -68,3 +69,20 @@ Please submit issues, pull requests or [contact us](devops@dogstudio.be). We are
 ## License
 
 The `dogstudio-nuxt-starter` repository is [MIT licensed](/LICENSE.md).
+
+## Nuxt 3 Roadmap
+
+- :white_check_mark: Upgrade `dependencies` and `devDependencies`
+- :white_check_mark: Migrate architecture from Nuxt 2 to Nuxt 3
+- :white_check_mark: Migrate plugins from Nuxt 2 to Nuxt 3
+- :white_check_mark: Migrate Vue 2 to Vue 3 with Composition API
+- :white_check_mark: Test icons imports
+- :white_check_mark: Test fonts imports
+- :white_check_mark: Test images imports
+- :white_check_mark: Test videos imports
+- :white_check_mark: Test audios imports
+- :white_check_mark: Test styles imports
+- :white_check_mark: Test shaders imports
+- :white_check_mark: Test components imports
+- :white_check_mark: Test environment variables
+- :construction: Migrate locales from Nuxt 2 to Nuxt 3

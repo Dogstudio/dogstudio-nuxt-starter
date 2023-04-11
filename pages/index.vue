@@ -1,20 +1,17 @@
+<script setup>
+// Metas
+const title = ref('Dogstudio | Nuxt Starter')
+const description = ref('Opinionated Nuxt starter by Dogstudio')
+</script>
+
 <template>
   <article class="home">
-    <h1>Hello World!</h1>
+    <Head>
+      <Title>{{ title }}</Title>
+      <Meta name="title" :content="title" />
+      <Meta name="description" :content="description" />
+    </Head>
+
+    <h1>{{ $t('welcome') }}</h1>
   </article>
 </template>
-
-<script>
-export default {
-  name: 'IndexPage',
-  head: {
-    title: 'Dogstudio | Nuxt Starter',
-    meta: [
-      {
-        hid: 'title',
-        content: 'Dogstudio | Nuxt Starter',
-      },
-    ],
-  },
-}
-</script>

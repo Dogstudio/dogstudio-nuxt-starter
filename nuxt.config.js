@@ -1,120 +1,82 @@
+// Dependencies
+import path from 'path'
+
+// Vite Plugins
+import glsl from 'vite-plugin-glsl'
+
 // Locales
-// import locales from './src/locales'
+import locales from './src/locales'
 
-/* prettier-ignore */
-export default {
-  // Change default Nuxt SSR value
-  ssr: true,
-
-  // Change default Nuxt target
-  target: 'server',
-
-  // Runtime configurations / Environment variables
-  // See: https://nuxtjs.org/docs/directory-structure/nuxt-config#runtimeconfig
-  // ----------
-  // Public environment variables
-  publicRuntimeConfig: {
-    mode: process.env.APP_MODE || 'app',
-    preview: process.env.APP_PREVIEW || true,
-    publicPath: process.env.PUBLIC_PATH || `http://localhost:${process.env.SERVER_PORT || 3000}`,
+export default defineNuxtConfig({
+  // Aliases configuration
+  alias: {
+    '@': path.join(__dirname, 'src'),
+    '@@': path.join(__dirname),
   },
 
-  // Private environment variables
-  privateRuntimeConfig: {},
-
-  // Define default meta for the application
-  // See: https://nuxtjs.org/docs/configuration-glossary/configuration-head
-  head() {
-    // i18n SEO
-    // See: https://i18n.nuxtjs.org/seo
-    let i18nHead = {
-      link: [],
-      meta: [],
-      htmlAttrs: [],
-    }
-
-    // Prevents i18head from crashing the all application
-    if (this.$nuxtI18nHead) {
-      i18nHead = this.$nuxtI18nHead({ addSeoAttributes: true })
-    }
-
-    return {
+  // Application configuration
+  // See: https://nuxt.com/docs/api/configuration/nuxt-config#app
+  app: {
+    // Default `<head>` configuration
+    // See: https://nuxt.com/docs/api/configuration/nuxt-config#head
+    head: {
+      // Title
       title: 'Dogstudio | Nuxt Starter',
+
+      // Metadata
       meta: [
         {
-          charset: 'utf-8',
-        },
-        {
-          name: 'viewport',
-          content: 'width=device-width, initial-scale=1.0, user-scalable=no',
-        },
-        {
-          hid: 'title',
           name: 'title',
           content: 'Dogstudio | Nuxt Starter',
         },
         {
-          hid: 'description',
           name: 'description',
           content: 'Opinionated Nuxt starter by Dogstudio',
         },
 
         // Open Graph / Facebook
         {
-          hid: 'og:type',
           content: 'website',
           property: 'og:type',
         },
         {
-          hid: 'og:url',
-          content: 'http://localhost:3000',
+          content: process.env.NUXT_PUBLIC_PUBLIC_PATH,
           property: 'og:url',
         },
         {
-          hid: 'og:title',
           content: 'Dogstudio | Nuxt Starter',
           property: 'og:title',
         },
         {
-          hid: 'og:image',
           content: '/assets/images/share.png',
           property: 'og:image',
         },
         {
-          hid: 'og:description',
           content: 'Opinionated Nuxt starter by Dogstudio',
           property: 'og:description',
         },
 
         // Twitter
         {
-          hid: 'twitter:url',
-          content: 'http://localhost:3000',
+          content: process.env.NUXT_PUBLIC_PUBLIC_PATH,
           property: 'twitter:url',
         },
         {
-          hid: 'twitter:card',
           content: 'summary_large_image',
           property: 'twitter:card',
         },
         {
-          hid: 'twitter:title',
           content: 'Dogstudio | Nuxt Starter',
           property: 'twitter:title',
         },
         {
-          hid: 'twitter:image',
           content: '/assets/images/share.png',
           property: 'twitter:image',
         },
         {
-          hid: 'twitter:description',
           content: 'Opinionated Nuxt starter by Dogstudio',
           property: 'twitter:description',
         },
-
-        // i18n
-        ...i18nHead.meta,
       ],
 
       // Links
@@ -124,9 +86,6 @@ export default {
           type: 'image/png',
           href: '/favicon.ico',
         },
-
-        // i18n
-        ...i18nHead.link,
       ],
 
       // Scripts
@@ -136,174 +95,84 @@ export default {
           type: 'text/javascript',
         },
       ],
-
-      // Attributes
-      htmlAttrs: i18nHead.htmlAttrs,
     }
   },
 
-  // Define custom directories for the application
-  // See: https://nuxtjs.org/docs/configuration-glossary/configuration-dir
-  dir: {
-    // Static files
-    static: 'public',
+  // Components auto-import configuration
+  // See: https://nuxt.com/docs/api/configuration/nuxt-config#components
+  components: {
+    dirs: [
+      '~/src/components/elements',
+      '~/src/components/modules',
+      '~/src/components/partials',
+      '~/src/components',
+    ],
+  },
 
-    // Source files
-    app: 'src/app',
-    store: 'src/store',
+  // Global CSS configuration
+  // See: https://nuxt.com/docs/api/configuration/nuxt-config/#css
+  css: ['@/styles/global.scss'],
+
+  // Change directories
+  // See: https://nuxt.com/docs/api/configuration/nuxt-config/#dir
+  dir: {
     assets: 'src/assets',
     layouts: 'src/layouts',
+    plugins: 'src/plugins',
     middleware: 'src/middleware',
   },
 
-  // Global CSS files includes in every page
-  // See: https://nuxtjs.org/docs/configuration-glossary/configuration-css
-  css: ['~/src/styles/global.scss'],
+  // Enable Nuxt modules to extend its core features
+  // See: https://nuxt.com/docs/api/configuration/nuxt-config/#modules
+  modules: [
+    '@nuxtjs/i18n',
+  ],
 
-  // Toggle the loading indicators between the routes or customize them
-  // See: https://nuxtjs.org/docs/configuration-glossary/configuration-loading
-  // See: https://nuxtjs.org/docs/configuration-glossary/configuration-loading-indicator
-  loading: false,
-  loadingIndicator: false,
-
-  // Enable Nuxt router middlewares from the `middleware` directory
-  // See: https://nuxtjs.org/docs/directory-structure/middleware/#router-middleware
-  router: {
-    middleware: [],
+  // Nitro configuration
+  // See: https://nitro.unjs.io/config/
+  nitro: {
+    output: {
+      dir: path.join(__dirname, '.output'),
+    },
   },
 
-  // Ignore some files during build time
-  ignore: [],
+  // Default runtime configuration
+  // See: https://nuxt.com/docs/api/configuration/nuxt-config/#runtimeconfig
+  runtimeConfig: {
+    public: {
+      mode: 'app',
+      preview: true,
+      publicPath: process.env.NUXT_PUBLIC_PUBLIC_PATH,
+    },
+  },
 
-  // Enable Nuxt plugins from the `plugins` directory
-  // See: https://nuxtjs.org/docs/configuration-glossary/configuration-plugins
-  plugins: [
-    { src: '~/src/plugins/say-hello.js', mode: 'client' },
-    { src: '~/src/plugins/real-height.js', mode: 'client' },
-  ],
-
-  // Enable Nuxt modules to extend its core functionalities
-  // See: https://nuxtjs.org/docs/configuration-glossary/configuration-modules
-  modules: ['@nuxtjs/i18n', '@nuxtjs/axios'],
-
-  // Enable auto-import of components within pages, layouts and other components
-  // See: https://nuxtjs.org/docs/configuration-glossary/configuration-components
-  components: [
-    { path: '~/src/components', extensions: ['vue'] },
-    { path: '~/src/components/modules', extensions: ['vue'] },
-    { path: '~/src/components/elements', extensions: ['vue'] },
-    { path: '~/src/components/partials', extensions: ['vue'] },
-  ],
-
-  // Axios global configuration
-  // See: https://axios.nuxtjs.org/options
-  axios: {},
-
-  // Enable / Disable telemetry
+  // Enable / Disable Nuxt telemetry
+  // See: https://nuxt.com/docs/api/configuration/nuxt-config/#telemetry
   telemetry: false,
 
-  // Customize Webpack configuration
-  // See: https://nuxtjs.org/docs/configuration-glossary/configuration-build
-  build: {
-    // Add Webpack plugins
-    plugins: [],
-
-    // Customize options for integrated Webpack loaders
-    loaders: {
-      vue: {
-        // See: https://nuxtjs.org/docs/features/configuration#extend-webpack-to-load-audio-files
-        transformAssetUrls: {
-          audio: 'src',
-        },
-      },
-      imgUrl: {
-        limit: false,
-      },
-      fontUrl: {
-        limit: false,
-      },
-    },
-
-    // Add exceptions
-    transpile: [],
-
-    // Extend Webpack configuration
-    extend(config, _) {
-      // New Webpack rules
-      const rules = [
-        // Audio files
-        // See: https://nuxtjs.org/docs/features/configuration#extend-webpack-to-load-audio-files
-        {
-          test: /\.(ogg|mp3|wav|mpe?g)$/,
-          use: {
-            loader: 'file-loader',
-            options: {
-              name: 'audios/[name].[contenthash:7].[ext]',
-              esModule: false,
-            },
-          },
-        },
-
-        // Shaders
-        {
-          test: /\.(glsl|frag|vert)$/,
-          exclude: /node_modules/,
-          use: [
-            'raw-loader',
-            {
-              loader: 'glslify-loader',
-              options: {
-                transform: ['glslify-import'],
-              },
-            },
-          ],
-        },
-
-        // `.mjs` files
-        {
-          type: 'javascript/auto',
-          test: /\.mjs$/,
-          include: /node_modules/,
-        },
-      ]
-
-      // Add Webpack rules
-      for (const rule of rules) {
-        config.module.rules.push(rule)
-      }
-
-      // Resolve Extensions
-      config.resolve.extensions.push('.css')
-      config.resolve.extensions.push('.sass')
-      config.resolve.extensions.push('.scss')
-      config.resolve.extensions.push('.json')
-
-      // Resolve Modules
-      config.resolve.modules.push('.')
-      config.resolve.modules.push('src')
-    },
+  // Vite configuration
+  // See: https://nuxt.com/docs/api/configuration/nuxt-config#vite
+  vite: {
+    plugins: [glsl()],
   },
 
-  // Server Options
-  // See: https://nuxtjs.org/docs/configuration-glossary/configuration-server#the-server-property
-  server: {
-    port: process.env.SERVER_PORT || 3000,
+  // i18n configuration
+  // See: https://v8.i18n.nuxtjs.org/getting-started/basic-usage
+  i18n: {
+    lazy: true,
+    langDir: 'src/locales',
+    locales,
+    baseUrl: process.env.NUXT_PUBLIC_PUBLIC_PATH,
+    vueI18n: {
+      fallbackLocale: process.env.CONFIG_FALLBACK_LOCALE,
+    },
+    strategy: 'prefix',
+    defaultLocale: process.env.CONFIG_DEFAULT_LOCALE,
+    detectBrowserLanguage: {
+      useCookie: true,
+      redirectOn: 'root',
+      alwaysRedirect: true,
+      cookieCrossOrigin: true,
+    },
   },
-
-  // Translations
-  // See: https://i18n.nuxtjs.org/
-  // i18n: {
-  //   lazy: true,
-  //   langDir: '~/src/locales/',
-  //   locales,
-  //   strategy: 'prefix',
-  //   defaultLocale: process.env.APP_DEFAULT_LOCALE,
-  //   detectBrowserLanguage: {
-  //     useCookie: true,
-  //     redirectOn: 'root',
-  //     alwaysRedirect: true,
-  //     fallbackLocale: process.env.APP_FALLBACK_LOCALE,
-  //     cookieCrossOrigin: true,
-  //   },
-  // },
-}
+})

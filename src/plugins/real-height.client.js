@@ -1,5 +1,5 @@
 // prettier-ignore
-export default () => {
+export default defineNuxtPlugin(() => {
   const onResize = () => {
     document.documentElement.setAttribute('style', `--real-height: ${window.innerHeight}px`)
   }
@@ -9,4 +9,4 @@ export default () => {
 
   // Initial Resize
   onResize()
-}
+})

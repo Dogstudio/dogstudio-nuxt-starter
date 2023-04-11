@@ -31,7 +31,6 @@ class Grid {
       this.toggle('gutters', e.currentTarget.checked)
     )
   }
-
   build() {
     const columns = Number(this.values['--grid-columns'])
     const gutters = Number(this.values['--grid-gutters'])
@@ -69,7 +68,6 @@ class Grid {
     this.root.append(edge1)
     this.root.prepend(edge0)
   }
-
   toggle(option, value) {
     switch (option) {
       case 'edges': {
@@ -88,7 +86,6 @@ class Grid {
       }
     }
   }
-
   observe(el, variables) {
     const crawler = () => {
       const values = {}
@@ -108,7 +105,6 @@ class Grid {
 
     crawler()
   }
-
   unobserve() {
     this.timeout ? clearTimeout(this.timeout) : null
     this.timeout = null
