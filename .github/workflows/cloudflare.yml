@@ -53,6 +53,7 @@ jobs:
       - name: Put Secrets
         uses: cloudflare/wrangler-action@2.0.0
         with:
+          name: ${{ github.event.repository.name }}
           apiToken: ${{ secrets.CF_API_TOKEN }}
           secrets: NUXT_PUBLIC_MODE
         env:
