@@ -26,7 +26,7 @@ jobs:
 
       - name: Extract Branch Name
         uses: nelonoel/branch-name@v1.0.1
-        run: echo ${BRANCH_NAME}
+      - run: echo ${BRANCH_NAME}
 
       - name: Install Dependencies
         run: npm install
@@ -41,7 +41,7 @@ jobs:
         with:
           apiToken: ${{ secrets.CF_API_TOKEN }}
           accountId: ${{ secrets.CF_ACCOUNT_ID }}
-          command: pages project create ${{ github.event.repository.name }} --production-branch=deploy/production
+          command: pages project create ${{ github.event.repository.name }} --production-branch="deploy/production"
         continue-on-error: true
 
       - name: Publish to CF Pages
@@ -49,4 +49,4 @@ jobs:
         with:
           apiToken: ${{ secrets.CF_API_TOKEN }}
           accountId: ${{ secrets.CF_ACCOUNT_ID }}
-          command: pages publish .output --project-name=${{ github.event.repository.name }} --branch=${BRANCH_NAME}
+          command: pages publish .output --project-name=${{ github.event.repository.name }} --branch="${BRANCH_NAME}"
