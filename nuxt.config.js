@@ -61,7 +61,7 @@ export default defineNuxtConfig({
 
         // Twitter
         {
-          content: process.env.NUXT_PUBLIC_PUBLIC_PATH,
+          content: process.env.NUXT_PUBLIC_PUBLIC_PATH || 'http://localhost:3000/',
           property: 'twitter:url',
         },
         {
