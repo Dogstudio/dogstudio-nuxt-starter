@@ -1,6 +1,6 @@
 ## Dogstudio Nuxt Starter
 
-The Nuxt starter with all the features you'll need to build blazing-fast websites and applications.
+The repository has all the features needed to build blazing-fast experience.
 
 - Nuxt 3
 - Prettier
@@ -62,15 +62,28 @@ npm run lint
 npm run upgrade
 ```
 
+## Example
+
+An example is available on the `demo` branch to test all the features included in the repository:  
+
+```bash
+git checkout demo
+```
+
+```bash
+npm i
+npm run dev
+```
+
 ## Contributing
 
-Please submit issues, pull requests or [contact us](devops@dogstudio.be). We are open to all kind of contributions.
+Please submit issues, pull requests or [contact us](devops+nuxt-starter@dogstudio.be). We are open to all kind of contributions.
 
 ## License
 
 The `dogstudio-nuxt-starter` repository is [MIT licensed](/LICENSE.md).
 
-## Nuxt 3 Roadmap
+## Roadmap
 
 - :white_check_mark: Upgrade `dependencies` and `devDependencies`
 - :white_check_mark: Migrate architecture from Nuxt 2 to Nuxt 3
@@ -85,4 +98,4 @@ The `dogstudio-nuxt-starter` repository is [MIT licensed](/LICENSE.md).
 - :white_check_mark: Test shaders imports
 - :white_check_mark: Test components imports
 - :white_check_mark: Test environment variables
-- :construction: Migrate locales from Nuxt 2 to Nuxt 3
+- :construction: Upgrade `@nuxtjs/i18n` to next stable version
