@@ -1,9 +1,10 @@
-name: Build & CF Deploy
+name: Build & CF Pages Deploy
 
 on:
   push:
     branches:
-      - demo
+      - deploy/staging
+      - deploy/production
 
 jobs:
   deploy:
@@ -31,15 +32,15 @@ jobs:
         env:
           NITRO_PRESET: cloudflare-pages
 
-      - name: Create Cloudflare Project
+      - name: Create CF Pages Project
         uses: cloudflare/wrangler-action@2.0.0
         with:
           apiToken: ${{ secrets.CF_API_TOKEN }}
           accountId: ${{ secrets.CF_ACCOUNT_ID }}
-          command: pages project create ${{ github.event.repository.name }} --production-branch=demo
+          command: pages project create ${{ github.event.repository.name }} --production-branch=deploy/production
         continue-on-error: true
 
-      - name: Publish to Cloudflare
+      - name: Publish to CF Pages
         uses: cloudflare/wrangler-action@2.0.0
         with:
           apiToken: ${{ secrets.CF_API_TOKEN }}
