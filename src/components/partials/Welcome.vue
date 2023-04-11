@@ -1,6 +1,7 @@
 <script setup>
 const config = useRuntimeConfig()
-console.log(config.public.mode)
+console.log('MODE', config.public.mode)
+console.log('PUBLIC PATH', config.public.publicPath)
 </script>
 
 <template>
