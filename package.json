@@ -1,7 +1,7 @@
 {
   "name": "@dogstudio/dogstudio-nuxt-starter",
   "type": "module",
-  "version": "1.0.1",
+  "version": "2.0.0-beta.1",
   "license": "MIT",
   "private": true,
   "homepage": "https://github.com/Dogstudio/dogstudio-nuxt-starter",
@@ -44,7 +44,7 @@
   "devDependencies": {
     "@nuxtjs/eslint-config": "^12.0.0",
     "@nuxtjs/eslint-module": "^4.0.2",
-    "eslint": "^8.37.0",
+    "eslint": "^8.38.0",
     "eslint-config-prettier": "^8.8.0",
     "eslint-plugin-nuxt": "^4.0.0",
     "eslint-plugin-prettier": "^4.2.1",
