@@ -6,6 +6,12 @@ on:
       - deploy/staging
       - deploy/production
 
+env:
+  I18N_DEFAULT_LOCALE: ${{ vars.I18N_DEFAULT_LOCALE }}
+  I18N_FALLBACK_LOCALE: ${{ vars.I18N_FALLBACK_LOCALE }}
+  NUXT_PUBLIC_MODE: ${{ vars.NUXT_PUBLIC_MODE }}
+  NUXT_PUBLIC_PUBLIC_PATH: ${{ vars.NUXT_PUBLIC_PUBLIC_PATH }}
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -32,16 +38,12 @@ jobs:
         run: npm install
 
       - name: Debug
-        run: echo ${{ vars.NUXT_PUBLIC_PUBLIC_PATH }}
+        run: echo ${{ $NUXT_PUBLIC_PUBLIC_PATH }}
 
       - name: Build
         run: npm run build
         env:
           NITRO_PRESET: cloudflare-pages
-          I18N_DEFAULT_LOCALE: ${{ vars.I18N_DEFAULT_LOCALE }}
-          I18N_FALLBACK_LOCALE: ${{ vars.I18N_FALLBACK_LOCALE }}
-          NUXT_PUBLIC_MODE: ${{ vars.NUXT_PUBLIC_MODE }}
-          NUXT_PUBLIC_PUBLIC_PATH: ${{ vars.NUXT_PUBLIC_PUBLIC_PATH }}
 
       - name: Create CF Pages Project
         uses: cloudflare/wrangler-action@2.0.0
