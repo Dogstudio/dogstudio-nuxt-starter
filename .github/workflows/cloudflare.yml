@@ -26,7 +26,8 @@ jobs:
 
       - name: Extract Branch Name
         uses: nelonoel/branch-name@v1.0.1
-      - run: echo ${BRANCH_NAME}
+        with:
+          command: echo ${BRANCH_NAME}
 
       - name: Install Dependencies
         run: npm install
