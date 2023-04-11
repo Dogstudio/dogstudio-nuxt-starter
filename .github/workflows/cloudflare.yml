@@ -41,6 +41,7 @@ jobs:
         run: npm run build
         env:
           NITRO_PRESET: cloudflare-pages
+          NUXT_PUBLIC_MODE: foo
 
       - name: Create CF Pages Project
         uses: cloudflare/wrangler-action@2.0.0
@@ -56,5 +57,3 @@ jobs:
           apiToken: ${{ secrets.CF_API_TOKEN }}
           accountId: ${{ secrets.CF_ACCOUNT_ID }}
           command: pages publish .output --project-name=${{ github.event.repository.name }} --branch=${BRANCH_NAME}
-        env:
-          FOO: foo
