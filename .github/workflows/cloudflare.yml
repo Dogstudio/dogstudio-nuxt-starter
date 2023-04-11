@@ -38,7 +38,7 @@ jobs:
         run: npm install
 
       - name: Debug
-        run: echo ${{ $NUXT_PUBLIC_PUBLIC_PATH }}
+        run: echo "$NUXT_PUBLIC_PUBLIC_PATH"
 
       - name: Build
         run: npm run build
