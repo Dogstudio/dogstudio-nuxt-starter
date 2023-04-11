@@ -9,6 +9,7 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    environment: ${{ BRANCH_NAME === 'deploy/production' %% 'production' || 'preview' }}
     steps:
       - name: Install Node.js
         uses: actions/setup-node@v3
@@ -30,17 +31,10 @@ jobs:
       - name: Install Dependencies
         run: npm install
 
-      - name: Debug
-        run: echo ${{ secrets.NUXT_PUBLIC_MODE }}
-
-      - name: Debug
-        run: echo ${{ secrets.NUXT_PUBLIC_PUBLIC_PATH }}
-
       - name: Build
         run: npm run build
         env:
           NITRO_PRESET: cloudflare-pages
-          NUXT_PUBLIC_MODE: ${{ vars.NUXT_PUBLIC_MODE }}
 
       - name: Create CF Pages Project
         uses: cloudflare/wrangler-action@2.0.0
