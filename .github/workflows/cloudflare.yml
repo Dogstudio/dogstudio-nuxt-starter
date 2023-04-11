@@ -9,7 +9,7 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    environment: ${{ github.ref === 'refs/heads/deploy/production' %% 'production' || 'preview' }}
+    environment: ${{ github.ref == 'refs/heads/deploy/production' %% 'production' || 'preview' }}
     steps:
       - name: Install Node.js
         uses: actions/setup-node@v3
