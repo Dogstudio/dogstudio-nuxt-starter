@@ -40,22 +40,29 @@ jobs:
         with:
           apiToken: ${{ secrets.CF_API_TOKEN }}
           accountId: ${{ secrets.CF_ACCOUNT_ID }}
-          command: pages project create ${{ github.event.repository.name }} --production-branch="deploy/production"
+          command: pages project create ${{ github.event.repository.name }} --production-branch=deploy/production
         continue-on-error: true
+
+      - name: Put CF Pages Secrets
+        uses: cloudflare/wrangler-action@2.0.0
+        with:
+          apiToken: ${{ secrets.CF_API_TOKEN }}
+          accountId: ${{ secrets.CF_ACCOUNT_ID }}
+          secrets: |
+            I18N_DEFAULT_LOCALE
+            I18N_FALLBACK_LOCALE
+            NUXT_PUBLIC_MODE
+            NUXT_PUBLIC_PUBLIC_PATH
+          command: --name=${{ github.event.repository.name }}
+        env:
+          I18N_DEFAULT_LOCALE: ${{ vars.I18N_DEFAULT_LOCALE }}
+          I18N_FALLBACK_LOCALE: ${{ vars.I18N_FALLBACK_LOCALE }}
+          NUXT_PUBLIC_MODE: ${{ vars.NUXT_PUBLIC_MODE }}
+          NUXT_PUBLIC_PUBLIC_PATH: ${{ vars.NUXT_PUBLIC_PUBLIC_PATH }}
 
       - name: Publish to CF Pages
         uses: cloudflare/wrangler-action@2.0.0
         with:
           apiToken: ${{ secrets.CF_API_TOKEN }}
           accountId: ${{ secrets.CF_ACCOUNT_ID }}
-          command: pages publish .output --project-name=${{ github.event.repository.name }} --branch="${BRANCH_NAME}"
-          secrets: |
-            I18N_DEFAULT_LOCALE
-            I18N_FALLBACK_LOCALE
-            NUXT_PUBLIC_MODE
-            NUXT_PUBLIC_PUBLIC_PATH
-        env:
-          I18N_DEFAULT_LOCALE: ${{ vars.I18N_DEFAULT_LOCALE }}
-          I18N_FALLBACK_LOCALE: ${{ vars.I18N_FALLBACK_LOCALE }}
-          NUXT_PUBLIC_MODE: ${{ vars.NUXT_PUBLIC_MODE }}
-          NUXT_PUBLIC_PUBLIC_PATH: ${{ vars.NUXT_PUBLIC_PUBLIC_PATH }}
+          command: pages publish .output --project-name=${{ github.event.repository.name }} --branch=${BRANCH_NAME}
