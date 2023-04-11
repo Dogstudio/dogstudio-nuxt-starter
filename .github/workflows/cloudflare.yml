@@ -24,6 +24,9 @@ jobs:
           path: node_modules
           key: ubuntu-latest-node-v16.x.x-deps-${{ hashFiles(format('{0}{1}', github.workspace, '/package-lock.json')) }}
 
+      - name: Extract Branch Name
+        uses: nelonoel/branch-name@v1.0.1
+
       - name: Install Dependencies
         run: npm install
 
@@ -45,4 +48,4 @@ jobs:
         with:
           apiToken: ${{ secrets.CF_API_TOKEN }}
           accountId: ${{ secrets.CF_ACCOUNT_ID }}
-          command: pages publish .output --project-name=${{ github.event.repository.name }} --production-branch=deploy/production
+          command: pages publish .output --project-name=${{ github.event.repository.name }} --branch=${BRANCH_NAME}
