@@ -1,9 +1,3 @@
-<script setup>
-const config = useRuntimeConfig()
-console.log('MODE', config.public.mode)
-console.log('PUBLIC PATH', config.public.publicPath)
-</script>
-
 <template>
   <section class="site-welcome">
     <div class="container">
@@ -54,6 +48,12 @@ console.log('PUBLIC PATH', config.public.publicPath)
     </div>
   </section>
 </template>
+
+<script>
+export default {
+  name: 'SiteWelcome',
+}
+</script>
 
 <style lang="scss">
 @use 'sass:math';
