@@ -142,8 +142,8 @@ export default defineNuxtConfig({
   // See: https://nuxt.com/docs/api/configuration/nuxt-config/#runtimeconfig
   runtimeConfig: {
     public: {
-      mode: process.env.NUXT_PUBLIC_MODE || 'app',
-      publicPath: process.env.NUXT_PUBLIC_PUBLIC_PATH || 'http://localhost:3000/',
+      mode: 'app',
+      publicPath: 'http://localhost:3000/',
     },
   },
 
