@@ -14,7 +14,6 @@ The repository has all the features needed to build blazing-fast experience.
 
 ```bash
 git clone git@github.com:Dogstudio/dogstudio-nuxt-starter.git my-new-app
-git checkout next
 ```
 
 ```bash
