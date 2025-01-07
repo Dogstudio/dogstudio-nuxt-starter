@@ -15,22 +15,14 @@ public/**/*.tsx
 public/**/*.jsx
 public/**/*.vue
 
-src/glxp/**/*.ts
-src/glxp/**/*.js
-src/glxp/**/*.tsx
-src/glxp/**/*.jsx
-src/glxp/**/*.vue
+glxp/**/*.ts
+glxp/**/*.js
+glxp/**/*.tsx
+glxp/**/*.jsx
+glxp/**/*.vue
 
-src/vendors/**/*.ts
-src/vendors/**/*.js
-src/vendors/**/*.tsx
-src/vendors/**/*.jsx
-src/vendors/**/*.vue
-
-# Locales
-src/locales/**/*.ts
-src/locales/**/*.js
-
-# Utilities
-src/utils/helpers/**/*.ts
-src/utils/helpers/**/*.js
+vendors/**/*.ts
+vendors/**/*.js
+vendors/**/*.tsx
+vendors/**/*.jsx
+vendors/**/*.vue
