@@ -72,6 +72,6 @@
     @return $value;
   }
 
-  @warn 'Unknow key in grid configuration: #{$use}';
+  @warn 'Unknown key in grid configuration: #{$use}';
   @return 0;
 }

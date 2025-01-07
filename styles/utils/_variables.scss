@@ -13,14 +13,6 @@ $PI: 3.1415926536;
 $brand-black: #000;
 $brand-white: #fff;
 
-/// @require Kennel - kennel/functions/_color.scss
-$brand-palette: (
-  'grey': (
-    'tone-1': #fdfdfd,
-    'tone-2': #8e8484,
-  ),
-);
-
 // Indexes
 // -----------------------------------------------------------------------------
 $z-layers: (
@@ -37,45 +29,37 @@ $base-line-height: 2;
 $fallback-font-serif: 'Times New Roman', 'Georgia', serif;
 $fallback-font-sans-serif: 'Helvetica', 'Arial', sans-serif;
 
-/// @require Kennel - kennel/functions/_font.scss
-$brand-fonts: (
-  'serif': (
-    en: (
-      $fallback-font-serif,
-    ),
-    ar: (
-      $fallback-font-serif,
-    ),
-  ),
-  'sans-serif': (
-    en: (
-      $fallback-font-sans-serif,
-    ),
-    ar: (
-      $fallback-font-sans-serif,
-    ),
-  ),
-);
-
 // Grid System Settings
 // -----------------------------------------------------------------------------
 $config: (
   xxxs: (
-    grid-size: calc(100vw - 40px),
-    grid-edge: 20px,
-    grid-gutter: 20px,
-    grid-columns: 4,
+    grid-size: calc(100vw - 48px),
+    grid-edge: 24px,
+    grid-gutter: 16px,
+    grid-columns: 6,
   ),
   l: (
-    grid-size: calc(100vw - 100px),
-    grid-edge: 50px,
+    grid-size: calc(100vw - 60px),
+    grid-edge: 20px,
     grid-gutter: 20px,
     grid-columns: 12,
   ),
   xl: (
-    grid-size: calc(100vw - 100px),
-    grid-edge: 50px,
+    grid-size: calc(100vw - 60px),
+    grid-edge: 20px,
     grid-gutter: 20px,
-    grid-columns: 16,
+    grid-columns: 12,
+  ),
+  xxl: (
+    grid-size: calc(100vw - 60px),
+    grid-edge: 20px,
+    grid-gutter: 20px,
+    grid-columns: 12,
+  ),
+  xxxl: (
+    grid-size: 1812px,
+    grid-edge: 48px,
+    grid-gutter: 24px,
+    grid-columns: 12,
   ),
 );

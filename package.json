@@ -1,7 +1,7 @@
 {
   "name": "@dogstudio/dogstudio-nuxt-starter",
   "type": "module",
-  "version": "2.0.0-beta.1",
+  "version": "2.1.0",
   "license": "MIT",
   "private": true,
   "homepage": "https://github.com/Dogstudio/dogstudio-nuxt-starter",
@@ -16,7 +16,7 @@
   },
   "engineStrict": true,
   "engines": {
-    "node": "16.x.x"
+    "node": "16.x.x || 17.x.x || 18.x.x || 19.x.x"
   },
   "bugs": {
     "url": "https://github.com/Dogstudio/dogstudio-nuxt-starter/issues",
@@ -36,9 +36,11 @@
     "not op_mini all"
   ],
   "dependencies": {
-    "@nuxtjs/i18n": "^8.0.0-beta.9",
+    "@nuxtjs/i18n": "^8.5.5",
+    "@pinia/nuxt": "^0.9.0",
     "fast-deep-equal": "^3.1.3",
     "nuxt": "^3.4.1",
+    "nuxt-viewport": "^2.2.0",
     "ua-parser-js": "^1.0.35"
   },
   "devDependencies": {

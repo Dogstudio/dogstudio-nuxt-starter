@@ -8,12 +8,10 @@
 html {
   height: 100%;
   box-sizing: border-box;
-  scroll-behavior: smooth;
 }
 
 html,
 body {
-  overscroll-behavior: none;
   -webkit-touch-callout: none;
   -webkit-tap-highlight-color: transparent;
 }
@@ -46,6 +44,7 @@ body {
     display: block;
   }
 }
+
 
 // Create CSS variables and add global styles based on grid configuration
 // -----------------------------------------------------------------------------
@@ -92,17 +91,13 @@ body {
        *
        * We apply some global styles to the DOM elements based on our configuration of the grid system.
        */
-      .site-wrapper {
+      .container {
+        width: 100%;
+        max-width: calc($grid-size + $grid-edge * 2);
         padding-left: $grid-edge;
         padding-right: $grid-edge;
-      }
-
-      .container {
-        max-width: var(--grid-size);
-        margin-right: auto;
-        margin-left: auto;
+        margin: 0 auto;
       }
     }
   }
 }
-

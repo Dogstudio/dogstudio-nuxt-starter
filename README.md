@@ -63,7 +63,7 @@ npm run upgrade
 
 ## Example
 
-An example is available on the `demo` branch to test all the features included in the repository:  
+An example is available on the `demo` branch to test all the features included in the repository:
 
 ```bash
 git checkout demo
@@ -81,20 +81,3 @@ Please submit issues, pull requests or [contact us](devops+nuxt-starter@dogstudi
 ## License
 
 The `dogstudio-nuxt-starter` repository is [MIT licensed](/LICENSE.md).
-
-## Roadmap
-
-- :white_check_mark: Upgrade `dependencies` and `devDependencies`
-- :white_check_mark: Migrate architecture from Nuxt 2 to Nuxt 3
-- :white_check_mark: Migrate plugins from Nuxt 2 to Nuxt 3
-- :white_check_mark: Migrate Vue 2 to Vue 3 with Composition API
-- :white_check_mark: Test icons imports
-- :white_check_mark: Test fonts imports
-- :white_check_mark: Test images imports
-- :white_check_mark: Test videos imports
-- :white_check_mark: Test audios imports
-- :white_check_mark: Test styles imports
-- :white_check_mark: Test shaders imports
-- :white_check_mark: Test components imports
-- :white_check_mark: Test environment variables
-- :construction: Upgrade `@nuxtjs/i18n` to next stable version
