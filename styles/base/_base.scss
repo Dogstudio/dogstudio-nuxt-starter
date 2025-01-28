@@ -1,12 +1,11 @@
-@use 'sass:map';
+@use "sass:map";
 
 // Breakpoints List
-@use '../utils/breakpoints' as *;
+@use "../utils/breakpoints" as *;
 
 // Set up a decent box model on the root element
 // -----------------------------------------------------------------------------
 html {
-  height: 100%;
   box-sizing: border-box;
 }
 
@@ -32,7 +31,6 @@ body {
 // -----------------------------------------------------------------------------
 body {
   width: 100%;
-  height: 100%;
 }
 
 // Set up global SVG container
@@ -44,7 +42,6 @@ body {
     display: block;
   }
 }
-
 
 // Create CSS variables and add global styles based on grid configuration
 // -----------------------------------------------------------------------------
@@ -63,12 +60,12 @@ body {
        *
        * We build our SCSS variables to store then in CSS ones for further usage.
        */
-      $grid-columns: map-get($props, 'grid-columns');
+      $grid-columns: map-get($props, "grid-columns");
       $grid-gutters: $grid-columns - 1;
 
-      $grid-size: map-get($props, 'grid-size');
-      $grid-edge: map-get($props, 'grid-edge');
-      $grid-gutter: map-get($props, 'grid-gutter');
+      $grid-size: map-get($props, "grid-size");
+      $grid-edge: map-get($props, "grid-edge");
+      $grid-gutter: map-get($props, "grid-gutter");
 
       /**
        * CSS Variables:

@@ -4,10 +4,6 @@
   --real-height: 100vh;
 }
 
-// Random Variables
-// -----------------------------------------------------------------------------
-$PI: 3.1415926536;
-
 // Color Palettes
 // -----------------------------------------------------------------------------
 $brand-black: #000;
@@ -24,7 +20,7 @@ $z-layers: (
 // Fonts Variables
 // -----------------------------------------------------------------------------
 $base-font-size: 16px;
-$base-line-height: 2;
+$base-line-height: 1;
 
 $fallback-font-serif: 'Times New Roman', 'Georgia', serif;
 $fallback-font-sans-serif: 'Helvetica', 'Arial', sans-serif;
@@ -63,3 +59,7 @@ $config: (
     grid-columns: 12,
   ),
 );
+
+// Random Variables
+// -----------------------------------------------------------------------------
+$PI: 3.1415926536;

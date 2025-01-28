@@ -1,122 +1,126 @@
 // For options see: https://nuxt.com/docs/api/nuxt-config
+import glsl from "vite-plugin-glsl";
+import * as fs from "fs";
+import * as path from "path";
 
-import glsl from 'vite-plugin-glsl'
+function getI18nLocales() {
+  const files = fs.readdirSync("./locales");
+  return files
+    .filter((file) => path.extname(file) === ".json")
+    .map((file) => path.basename(file, ".json"));
+}
+
+import { BREAKPOINTS } from "./utils/constants.js";
 
 export default defineNuxtConfig({
-  // ssr: false,
-
+  devtools: { enabled: false },
+  ssr: false,
   devServer: {
-    host: '0.0.0.0',
+    host: "0.0.0.0",
   },
-
   app: {
     head: {
-      title: '',
+      title: "",
       meta: [
         {
-          name: 'title',
-          content: '',
+          name: "description",
+          content: "",
+        },
+
+        //  Facebook / Open Graph
+        {
+          property: "og:url",
+          content: "",
         },
         {
-          name: 'description',
-          content: '',
+          property: "og:type",
+          content: "website",
+        },
+        {
+          property: "og:title",
+          content: "",
+        },
+        {
+          property: "og:description",
+          content: "",
+        },
+        {
+          property: "og:image",
+          content: "/share.jpg", // 1200x628
+        },
+
+        // Twitter / Open Graph
+        {
+          name: "twitter:card",
+          content: "summary",
+        },
+        {
+          property: "twitter:domain",
+          content: "",
+        },
+        {
+          property: "twitter:url",
+          content: "",
+        },
+        {
+          name: "twitter:title",
+          content: "",
+        },
+        {
+          name: "twitter:description",
+          content: "",
+        },
+        {
+          name: "twitter:image",
+          content: "/share-twitter.jpg", // 506×254
         },
       ],
       script: [],
-      link: [
-        // {
-        //   rel: 'icon',
-        //   type: 'image/x-icon',
-        //   href: '/assets/favicons/favicon.ico',
-        // },
-        // {
-        //   rel: 'apple-touch-icon',
-        //   sizes: '180x180',
-        //   href: '/assets/favicons/apple-touch-icon.png',
-        // },
-        // {
-        //   rel: 'icon',
-        //   type: 'image/png',
-        //   sizes: '32x32',
-        //   href: '/assets/favicons/favicon-32x32.png'
-        // },
-        // {
-        //   rel: 'icon',
-        //   type: 'image/png',
-        //   sizes: '16x16',
-        //   href: '/assets/favicons/favicon-16x16.png'
-        // },
-        // {
-        //   rel: 'icon',
-        //   type: 'image/png',
-        //   sizes: '192x192',
-        //   href: '/assets/favicons/android-chrome-192x192.png'
-        // },
-        // {
-        //   rel: 'icon',
-        //   type: 'image/png',
-        //   sizes: '512x512',
-        //   href: '/assets/favicons/android-chrome-512x512.png'
-        // },
-        // {
-        //   rel: 'manifest',
-        //   href: '/assets/favicons/site.webmanifest'
-        // },
-      ],
+      link: [],
     },
   },
-
-  css: ['@/styles/global.scss'],
-  modules: ['@nuxtjs/i18n', '@pinia/nuxt', 'nuxt-viewport'],
-
+  modules: ["@nuxtjs/i18n", "@pinia/nuxt", "nuxt-viewport"],
   i18n: {
-    strategy: 'prefix_except_default',
-    defaultLocale: 'en-us',
-    langDir: 'locales',
+    defaultLocale: "en",
+    locales: getI18nLocales(),
+    strategy: "prefix_except_default",
+    vueI18n: "./i18n.config.js",
     detectBrowserLanguage: {
       useCookie: false,
-      redirectOn: 'root',
+      redirectOn: "root",
     },
     compilation: {
       strictMessage: false,
     },
-    locales: [
-      {
-        code: 'en-us',
-        name: 'English',
-        file: 'en-us.json',
-      },
-    ],
   },
-
   pinia: {
-    storesDirs: ['~/stores/**'],
+    storesDirs: ["~/stores/**"],
   },
-
   viewport: {
-    fallbackBreakpoint: 'l',
-    breakpoints: {
-      xxxs: 0,
-      xxs: 320,
-      xs: 450,
-      s: 600,
-      m: 768,
-      l: 1024,
-      xl: 1340,
-      xxl: 1440,
-      xxxl: 1920,
-    },
+    breakpoints: BREAKPOINTS,
+    fallbackBreakpoint: "L",
     defaultBreakpoints: {
-      desktop: 'l',
-      tablet: 'm',
-      mobile: 'xxxs',
+      desktop: "L",
+      tablet: "M",
+      mobile: "XXXS",
     },
-    fallbackBreakpoint: 'l',
   },
-
+  css: ["~/styles/global.scss"],
   vite: {
+    css: {
+      preprocessorOptions: {
+        scss: {
+          additionalData: `
+            @import "~/styles/vendors/sass-mq/_mq.scss";
+            @import "~/styles/utils/_utilities.scss";
+            @import "~/styles/utils/_easings.scss";
+            @import "~/styles/utils/_variables.scss";
+            @import "~/styles/utils/_functions.scss";
+          `,
+        },
+      },
+    },
     plugins: [glsl()],
   },
-
-  compatibilityDate: '2025-01-07',
-})
+  compatibilityDate: "2025-01-07",
+});

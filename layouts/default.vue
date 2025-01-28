@@ -1,13 +1,13 @@
 <script setup>
 // Constants
-import { DEV } from '@/utils/constants'
+import { DEV } from "@/utils/constants";
 
 // Variables
-const route = useRoute()
-const enable = route.query.debug === 'grid'
+const route = useRoute();
+const enable = route.query.debug === "grid";
 
 // i18n / SEO
-const i18nHead = useLocaleHead()
+const i18nHead = useLocaleHead();
 useHead(() => ({
   htmlAttrs: {
     lang: i18nHead.value.htmlAttrs?.lang,
@@ -15,10 +15,10 @@ useHead(() => ({
   },
   link: [...(i18nHead.value.link || [])],
   meta: [...(i18nHead.value.meta || [])],
-}))
+}));
 
 // State
-const showGrid = useState(() => DEV && enable)
+const showGrid = useState(() => DEV && enable);
 </script>
 
 <template>
