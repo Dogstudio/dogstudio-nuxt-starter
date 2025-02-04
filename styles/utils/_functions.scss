@@ -1,8 +1,5 @@
-@use 'sass:map';
 @use 'sass:math';
-
-// Variables
-@import './variables';
+@use 'sass:map';
 
 /**
  * The `gs-calc` function will calculate the property value it is used on based on the grid system configuration.
@@ -15,11 +12,19 @@
  *
  * @return CSS equation for the property the function is used on
  */
-@function gs-calc($column, $gutter, $grid-size: 100vw, $grid-gutter: 20px, $grid-columns: 12) {
+@function gs-calc(
+  $column,
+  $gutter,
+  $grid-size: 100vw,
+  $grid-gutter: 20px,
+  $grid-columns: 12
+) {
   $column: math.clamp(0, $column, $grid-columns);
   $gutter: math.clamp(0, $gutter, $grid-columns - 1);
 
-  $unit-column: calc((min(100vw, #{$grid-size}) - ((#{$grid-columns} - 1) * #{$grid-gutter})) / #{$grid-columns});
+  $unit-column: calc(
+    (min(100vw, #{$grid-size}) - ((#{$grid-columns} - 1) * #{$grid-gutter})) / #{$grid-columns}
+  );
   $unit-gutter: $grid-gutter;
 
   $width-column: calc(#{$unit-column} * #{$column});
@@ -58,13 +63,7 @@
     /**
      * Computation:
      */
-    $value: gs-calc(
-      $column,
-      $gutter,
-      $grid-size,
-      $grid-gutter,
-      $grid-columns,
-    );
+    $value: gs-calc($column, $gutter, $grid-size, $grid-gutter, $grid-columns);
 
     /**
      * Return CSS equation:
@@ -72,6 +71,101 @@
     @return $value;
   }
 
-  @warn 'Unknown key in grid configuration: #{$use}';
+  @warn 'Unknow key in grid configuration: #{$use}';
   @return 0;
+}
+
+/// Fetch nested keys
+///
+/// @param {Map} $map - Map
+/// @param {Arglist} $keys - Keys to fetch
+///
+/// @return {*}
+
+@function map-deep-get($map, $keys...) {
+  @each $key in $keys {
+    @if type-of($map) != 'map' {
+      @warn '`#{$map}` is not a map.';
+      @return false;
+    }
+
+    $map: map-get($map, $key);
+  }
+
+  @return $map;
+}
+
+/// Get a z-index value from a given layers maps.
+///
+/// @param {Arglist} layers to fetch
+///
+/// @requires {variable} z-layers
+///
+/// @example scss - Usage
+///   z-index: layer(below);
+///   z-index: layer(modal);
+///   z-index: layer(modal, header);
+///
+/// @example css - CSS Output
+///   z-index: -1;
+///   z-index: 500;
+///   z-index: 50;
+///
+/// @return {Number}
+
+@function layer($layers...) {
+  $value: map-deep-get($z-layers, $layers...);
+
+  @if type-of($value) == 'map' {
+    $value: map-get($value, base);
+  }
+
+  @return $value;
+}
+
+/// Strips the unit from a number.
+///
+/// @param {Number (With Unit)} $value
+///
+/// @example scss - Usage
+///   $dimension: strip-units(10em);
+///
+/// @example css - CSS Output
+///   $dimension: 10;
+///
+/// @return {Number (Unitless)}
+
+@function strip-units($value) {
+  @return math.div($value, $value * 0 + 1);
+}
+
+/// Convert pixels to rems
+/// Assumes $base-font-size is the font-size of <html>
+///
+/// @access private
+///
+/// @param {Number} $pxval
+///   The value to convert.
+///
+/// @example scss - Usage
+///   $dimension: rem(12); // $base-font-size: 16px
+///
+/// @example css - CSS Output
+///   $dimension: 0.75rem; // $base-font-size: 16px
+///
+/// @requires {Variable} $base-font-size
+///
+/// @return {Number}
+
+@function rem($pxval) {
+  @if not unitless($pxval) {
+    $pxval: strip-units($pxval);
+  }
+
+  $base: $base-font-size;
+  @if not unitless($base) {
+    $base: strip-units($base);
+  }
+
+  @return math.div($pxval, $base) * 1rem;
 }

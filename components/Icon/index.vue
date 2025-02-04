@@ -1,35 +1,39 @@
 <script setup>
+defineOptions({
+  name: "IconElement",
+});
+
 // Properties
 const props = defineProps({
   name: {
     type: String,
     required: true,
   },
-  width: {
-    type: Number,
-    required: true,
-  },
-  height: {
-    type: Number,
-    required: true,
-  },
-})
+});
 
-// Component
-const iconComponent = (await import(`./Icons/icon-${props.name}.vue`)).default
+// Computed Values
+const component = computed(() => {
+  return defineAsyncComponent(() => import(`./Icons/icon-${props.name}.vue`));
+});
 </script>
 
 <template>
-  <span
-    :class="['svg', `svg--${name}`]"
-    :style="{ width: `${width}px`, height: `${height}px` }"
-  >
-    <component :is="iconComponent" :width="width" :height="height" />
+  <span class="svg" :class="`svg--${name}`">
+    <component :is="component" />
   </span>
 </template>
 
-<script>
-export default {
-  name: 'IconElement',
+<style lang="scss">
+.svg {
+  display: inline-block;
+  width: 100%; // Do not change, use a wrapper around to control the size so the icon is responsive
+  height: 100%; // Do not change, use a wrapper around to control the size so the icon is responsive
+
+  svg {
+    fill: currentColor;
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
 }
-</script>
+</style>

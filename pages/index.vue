@@ -2,7 +2,7 @@
 
 <template>
   <article class="home">
-    <h1>{{ $t('welcome') }}</h1>
+    <h1>{{ $t("welcome") }}</h1>
   </article>
 </template>
 
