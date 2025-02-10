@@ -28,6 +28,7 @@ $fallback-font-sans-serif: 'Helvetica', 'Arial', sans-serif;
 // Grid System Settings
 // -----------------------------------------------------------------------------
 $config: (
+  // only put a new breakpoint in here if it has different grid settings
   xxxs: (
     grid-size: calc(100vw - 48px),
     grid-edge: 24px,
@@ -35,18 +36,6 @@ $config: (
     grid-columns: 6,
   ),
   l: (
-    grid-size: calc(100vw - 60px),
-    grid-edge: 20px,
-    grid-gutter: 20px,
-    grid-columns: 12,
-  ),
-  xl: (
-    grid-size: calc(100vw - 60px),
-    grid-edge: 20px,
-    grid-gutter: 20px,
-    grid-columns: 12,
-  ),
-  xxl: (
     grid-size: calc(100vw - 60px),
     grid-edge: 20px,
     grid-gutter: 20px,
