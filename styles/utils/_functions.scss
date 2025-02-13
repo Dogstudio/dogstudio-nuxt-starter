@@ -1,5 +1,6 @@
 @use 'sass:math';
 @use 'sass:map';
+@use 'sass:list';
 
 /**
  * The `gs-calc` function will calculate the property value it is used on based on the grid system configuration.
@@ -71,8 +72,37 @@
     @return $value;
   }
 
-  @warn 'Unknow key in grid configuration: #{$use}';
+  @warn 'Unknown key in grid configuration: #{$use}';
   @return 0;
+}
+
+/**
+ * `mq-gs-from` is a convenience function for generating grid system values for a given breakpoint and up.
+ * 
+ * @param {String} $bpFrom - The breakpoint to start from.
+ * 
+ * @return CSS rules for the given breakpoint and up.
+ *
+ * @example scss usage:
+ *
+ *   @include mq-gs-from('l') {
+ *     width: gs(6, 5, $from);
+ *   }
+ *   
+ * This will generate the appropriate grid values at each breakpoint from 'l' and up. 
+ */
+@mixin mq-gs-from($bpFrom) {
+  $keyList: map.keys($config);
+  $fromIndex: list.index($keyList, $bpFrom);
+
+  @if not $fromIndex { @warn "Invalid breakpoint: #{$bpFrom}"; }
+
+  @for $i from $fromIndex through length($keyList) {
+    $key: nth($keyList, $i);
+    @include mq($from: $key) using ($from) {
+      @content($from);
+    }
+  }
 }
 
 /// Fetch nested keys
