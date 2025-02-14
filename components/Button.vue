@@ -18,15 +18,14 @@ const props = defineProps({
 
 // Refs
 const buttonRef = ref(null);
+
+// Computed Values
 const isExternal = computed(() => {
   return attrs.href && attrs.href.startsWith("http");
 });
-
-// Computed Values
 const localizeHref = computed(() => {
   return attrs.href ? localePath(attrs.href) : null;
 });
-
 const component = computed(() => {
   if (attrs.href) {
     return defineNuxtLink({
