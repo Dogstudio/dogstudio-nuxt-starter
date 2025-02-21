@@ -9,8 +9,8 @@ const props = defineProps({
     default: "0px",
   },
   threshold: {
-    type: String,
-    default: "0",
+    type: Number,
+    default: 0,
   },
   once: {
     type: Boolean,
