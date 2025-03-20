@@ -89,11 +89,9 @@ body {
        * We apply some global styles to the DOM elements based on our configuration of the grid system.
        */
       .container {
-        width: 100%;
-        max-width: calc($grid-size + $grid-edge * 2);
-        padding-left: $grid-edge;
-        padding-right: $grid-edge;
-        margin: 0 auto;
+        max-width: var(--grid-size);
+        margin-right: auto;
+        margin-left: auto;
       }
     }
   }
