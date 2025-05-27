@@ -1,33 +1,27 @@
 <script setup>
-const localePath = useLocalePath();
-
-// Remove attrs from the component
-// And set them to the button element
-defineOptions({ inheritAttrs: false });
-
-// Attributes
-const attrs = useAttrs();
-
-// Properties
 const props = defineProps({
   tag: {
     type: String,
     default: "button",
   },
+  href: {
+    type: String,
+    default: null,
+  },
 });
 
-// Refs
-const buttonRef = ref(null);
+const buttonRef = useTemplateRef("buttonRef");
+const localePath = useLocalePath();
 
 // Computed Values
 const isExternal = computed(() => {
-  return attrs.href && attrs.href.startsWith("http");
+  return props.href && props.href.startsWith("http");
 });
 const localizeHref = computed(() => {
-  return attrs.href ? localePath(attrs.href) : null;
+  return props.href ? localePath(props.href) : null;
 });
 const component = computed(() => {
-  if (attrs.href) {
+  if (props.href) {
     return defineNuxtLink({
       externalRelAttribute: isExternal.value ? "noopener noreferrer" : "null",
     });
@@ -41,8 +35,7 @@ const component = computed(() => {
   <component
     :is="component"
     ref="buttonRef"
-    class="button-primary"
-    v-bind="attrs"
+    class="button"
     :href="localizeHref"
     :external="isExternal"
   >
@@ -51,8 +44,10 @@ const component = computed(() => {
 </template>
 
 <style lang="scss">
-.button-primary {
+.button {
   appearance: none;
   cursor: pointer;
+
+  border: 2px solid black;
 }
 </style>

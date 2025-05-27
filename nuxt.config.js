@@ -79,7 +79,13 @@ export default defineNuxtConfig({
       link: [],
     },
   },
-  modules: ["@nuxtjs/i18n", "@pinia/nuxt", "nuxt-viewport"],
+  modules: [
+    "@nuxtjs/i18n",
+    "@pinia/nuxt",
+    "nuxt-viewport",
+    "@nuxtjs/storybook",
+  ],
+
   i18n: {
     defaultLocale: "en",
     locales: getI18nLocales(),
@@ -93,9 +99,7 @@ export default defineNuxtConfig({
       strictMessage: false,
     },
   },
-  pinia: {
-    storesDirs: ["~/stores/**"],
-  },
+
   viewport: {
     breakpoints: BREAKPOINTS,
     fallbackBreakpoint: "L",
