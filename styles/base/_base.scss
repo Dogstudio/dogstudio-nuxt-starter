@@ -1,8 +1,8 @@
 @use "sass:map";
 
-// Breakpoints List
-@use "../utils/breakpoints" as *;
-@use "../utils/variables" as *;
+@use "~/styles/vendors/sass-mq/mq" as *;
+@use "~/styles/utils/breakpoints" as *;
+@use "~/styles/utils/variables" as *;
 
 // Set up a decent box model on the root element
 // -----------------------------------------------------------------------------
