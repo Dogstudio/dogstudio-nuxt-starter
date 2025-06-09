@@ -1,13 +1,13 @@
 <script setup>
-const breakpoint = ref("xxxs");
-const viewport = useViewport();
+const breakpoint = ref('xxxs')
+const viewport = useViewport()
 watch(
   viewport.breakpoint,
   (value) => {
-    breakpoint.value = value;
+    breakpoint.value = value
   },
   { immediate: true }
-);
+)
 </script>
 
 <template>
@@ -28,6 +28,12 @@ watch(
 </template>
 
 <style lang="scss">
+@use '~/styles/vendors/sass-mq/_mq.scss' as *;
+@use '~/styles/utils/_utilities.scss' as *;
+@use '~/styles/utils/_easings.scss' as *;
+@use '~/styles/utils/_variables.scss' as *;
+@use '~/styles/utils/_functions.scss' as *;
+
 .grid-demo {
   // use ?debug=grid and use the dropdown in the top right for grid debugging
 
@@ -39,7 +45,7 @@ watch(
     align-items: flex-start;
     justify-content: flex-start;
 
-    @include mq-gs-from("xxxs") using ($from) {
+    @include mq-gs-from('xxxs') using ($from) {
       gap: gs(0, 1, $from);
     }
 
@@ -54,8 +60,8 @@ watch(
     background-color: #ccc;
     display: flex;
 
-    width: gs(3, 2, "xxxs");
-    @include mq-gs-from("l") using ($from) {
+    width: gs(3, 2, 'xxxs');
+    @include mq-gs-from('l') using ($from) {
       width: gs(2, 1, $from);
     }
   }

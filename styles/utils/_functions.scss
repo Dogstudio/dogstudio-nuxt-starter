@@ -48,12 +48,12 @@
 @function gs($column: 0, $gutter: 0, $use) {
   @if (map.has-key($config, $use)) {
     // Get the configuration to use.
-    $props: map-get($config, $use);
+    $props: map.get($config, $use);
 
     // Build the SCSS variables for the `gs-calc` function.
-    $grid-size: map-get($props, "grid-size");
-    $grid-gutter: map-get($props, "grid-gutter");
-    $grid-columns: map-get($props, "grid-columns");
+    $grid-size: map.get($props, "grid-size");
+    $grid-gutter: map.get($props, "grid-gutter");
+    $grid-columns: map.get($props, "grid-columns");
 
     // Compute the value.
     $value: gs-calc($column, $gutter, $grid-size, $grid-gutter, $grid-columns);
@@ -86,8 +86,8 @@
     @warn "Invalid breakpoint: #{$bpFrom}";
   }
 
-  @for $i from $fromIndex through length($keyList) {
-    $key: nth($keyList, $i);
+  @for $i from $fromIndex through list.length($keyList) {
+    $key: list.nth($keyList, $i);
     @include mq($from: $key) using ($from) {
       @content ($from);
     }
@@ -109,7 +109,7 @@
       @return false;
     }
 
-    $map: map-get($map, $key);
+    $map: map.get($map, $key);
   }
 
   @return $map;
@@ -133,7 +133,7 @@
   $value: map-deep-get($z-layers, $layers...);
 
   @if type-of($value) == "map" {
-    $value: map-get($value, base);
+    $value: map.get($value, base);
   }
 
   @return $value;
