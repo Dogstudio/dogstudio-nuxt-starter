@@ -2,33 +2,33 @@
 const props = defineProps({
   tag: {
     type: String,
-    default: "button",
+    default: 'button',
   },
   href: {
     type: String,
     default: null,
   },
-});
+})
 
-const buttonRef = useTemplateRef("buttonRef");
-const localePath = useLocalePath();
+const buttonRef = useTemplateRef('buttonRef')
+const localePath = useLocalePath()
 
 // Computed Values
 const isExternal = computed(() => {
-  return props.href && props.href.startsWith("http");
-});
+  return props.href && props.href.startsWith('http')
+})
 const localizeHref = computed(() => {
-  return props.href ? localePath(props.href) : null;
-});
+  return props.href ? localePath(props.href) : null
+})
 const component = computed(() => {
   if (props.href) {
     return defineNuxtLink({
-      externalRelAttribute: isExternal.value ? "noopener noreferrer" : "null",
-    });
+      externalRelAttribute: isExternal.value ? 'noopener noreferrer' : 'null',
+    })
   }
 
-  return props.tag;
-});
+  return props.tag
+})
 </script>
 
 <template>

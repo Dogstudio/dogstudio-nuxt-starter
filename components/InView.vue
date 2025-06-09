@@ -2,11 +2,11 @@
 const props = defineProps({
   tag: {
     type: String,
-    default: "div",
+    default: 'div',
   },
   rootMargin: {
     type: String,
-    default: "0px",
+    default: '0px',
   },
   threshold: {
     type: Number,
@@ -24,36 +24,36 @@ const props = defineProps({
     type: Function,
     default: () => {},
   },
-});
+})
 
-const rootRef = ref(null);
-const observer = ref(null);
+const rootRef = ref(null)
+const observer = ref(null)
 
 onMounted(() => {
   const handleIntersection = (entries) => {
-    const isIntersecting = entries[0]?.isIntersecting;
+    const isIntersecting = entries[0]?.isIntersecting
 
     if (isIntersecting) {
       if (props.once) {
-        observer.value?.disconnect();
+        observer.value?.disconnect()
       }
 
-      props.onEnter(entries[0].target);
+      props.onEnter(entries[0].target)
     } else {
-      props.onLeave();
+      props.onLeave()
     }
-  };
+  }
 
   observer.value = new IntersectionObserver(handleIntersection, {
     rootMargin: props.rootMargin,
     threshold: props.threshold,
-  });
-  observer.value.observe(rootRef.value);
-});
+  })
+  observer.value.observe(rootRef.value)
+})
 
 onBeforeUnmount(() => {
-  observer.value?.disconnect();
-});
+  observer.value?.disconnect()
+})
 </script>
 
 <template>

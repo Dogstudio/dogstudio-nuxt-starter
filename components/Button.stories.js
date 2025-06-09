@@ -1,8 +1,8 @@
-import Button from "./Button.vue";
+import Button from './Button.vue'
 
 export default {
   component: Button,
-};
+}
 
 export const Primary = {
   render: (args) => ({
@@ -10,12 +10,12 @@ export const Primary = {
     setup() {
       return {
         args,
-      };
+      }
     },
     template: '<Button v-bind="args">{{ args.label }}</Button>',
   }),
   args: {
     primary: true,
-    label: "Lorem Ispum",
+    label: 'Lorem Ipsum',
   },
-};
+}

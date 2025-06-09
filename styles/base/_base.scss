@@ -2,6 +2,7 @@
 
 // Breakpoints List
 @use "../utils/breakpoints" as *;
+@use "../utils/variables" as *;
 
 // Set up a decent box model on the root element
 // -----------------------------------------------------------------------------
@@ -52,7 +53,7 @@ body {
      *
      * We get the configuration to use.
      */
-    $props: map-get($config, $use);
+    $props: map.get($config, $use);
 
     @include mq($from: $use) using ($from) {
       /**
@@ -60,12 +61,12 @@ body {
        *
        * We build our SCSS variables to store then in CSS ones for further usage.
        */
-      $grid-columns: map-get($props, "grid-columns");
+      $grid-columns: map.get($props, "grid-columns");
       $grid-gutters: $grid-columns - 1;
 
-      $grid-size: map-get($props, "grid-size");
-      $grid-edge: map-get($props, "grid-edge");
-      $grid-gutter: map-get($props, "grid-gutter");
+      $grid-size: map.get($props, "grid-size");
+      $grid-edge: map.get($props, "grid-edge");
+      $grid-gutter: map.get($props, "grid-gutter");
 
       /**
        * CSS Variables:

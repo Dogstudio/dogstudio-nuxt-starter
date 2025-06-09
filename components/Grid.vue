@@ -1,27 +1,24 @@
 <script setup>
 // Utils
-import Grid from "@/utils/helpers/grid";
+import Grid from '@/utils/helpers/grid'
 
 // Refs
-const grid = ref(null);
-const toolbar = ref(null);
-const showToolbar = ref(false);
+const grid = ref(null)
+const toolbar = ref(null)
+const showToolbar = ref(false)
 
 // Methods
 const handleToolbarToggle = () => {
-  showToolbar.value = !showToolbar.value;
-};
+  showToolbar.value = !showToolbar.value
+}
 
 // Lifecycle
 onMounted(() => {
-  const Helper = new Grid(grid.value, toolbar.value);
+  const Helper = new Grid(grid.value, toolbar.value)
 
   // Grid Observer
-  Helper.observe(document.documentElement, [
-    "--grid-columns",
-    "--grid-gutters",
-  ]);
-});
+  Helper.observe(document.documentElement, ['--grid-columns', '--grid-gutters'])
+})
 </script>
 
 <template>
@@ -140,19 +137,19 @@ $toolbar-background: #37474f;
       overflow-y: hidden;
       background-color: $toolbar-background;
 
-      [dir="rtl"] & {
+      [dir='rtl'] & {
         flex-direction: row-reverse;
       }
     }
 
     &-item {
       color: $toolbar-color;
-      font-family: "Helvetica", "Arial", sans-serif;
+      font-family: 'Helvetica', 'Arial', sans-serif;
       font-size: 14px;
       font-weight: 400;
       line-height: 1;
 
-      input[type="checkbox"] {
+      input[type='checkbox'] {
         position: absolute;
         top: auto;
         left: -10000px;
@@ -162,19 +159,19 @@ $toolbar-background: #37474f;
         overflow-y: hidden;
       }
 
-      input[type="checkbox"] ~ label {
+      input[type='checkbox'] ~ label {
         position: relative;
         padding: 15px;
         display: flex;
         align-items: center;
         cursor: pointer;
 
-        [dir="rtl"] & {
+        [dir='rtl'] & {
           flex-direction: row-reverse;
         }
 
         &::before {
-          content: "";
+          content: '';
           display: block;
           width: 15px;
           height: 15px;
@@ -201,9 +198,9 @@ $toolbar-background: #37474f;
         }
       }
 
-      input[type="checkbox"]:checked ~ label {
+      input[type='checkbox']:checked ~ label {
         &::after {
-          content: "";
+          content: '';
         }
 
         &::before {
@@ -212,7 +209,7 @@ $toolbar-background: #37474f;
       }
 
       + .site-grid__toolbar-item {
-        input[type="checkbox"] ~ label {
+        input[type='checkbox'] ~ label {
           border-left: 1px solid rgba($toolbar-color, 0.15);
         }
       }
@@ -231,7 +228,7 @@ $toolbar-background: #37474f;
 
       &::after,
       &::before {
-        content: "";
+        content: '';
         position: absolute;
         top: 50%;
         left: 50%;

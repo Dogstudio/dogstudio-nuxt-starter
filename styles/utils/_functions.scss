@@ -1,6 +1,8 @@
 @use "sass:math";
 @use "sass:map";
 @use "sass:list";
+@use "~/styles/vendors/sass-mq/mq" as *;
+@use "../utils/variables" as *;
 
 /**
  * Calculates the property value based on the grid system configuration.
