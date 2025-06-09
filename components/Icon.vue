@@ -38,13 +38,6 @@ async function getIcon() {
 }
 
 const iconSizes = {
-  x: [10, 12],
-  linkedin: [16, 16],
-  facebook: [16, 16],
-  youtube: [14, 10],
-  instagram: [14, 14],
-  link: [12, 10],
-
   default: [20, 20],
 }
 
