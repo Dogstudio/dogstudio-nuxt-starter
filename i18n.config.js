@@ -1,4 +1,4 @@
-import en from "@/locales/en.json";
+import en from '~/locales/en.json'
 
 // Export i18n instance
 export default {
@@ -7,4 +7,4 @@ export default {
   messages: {
     en,
   },
-};
+}
