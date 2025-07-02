@@ -9,12 +9,17 @@ const props = defineProps({
     default: '0px',
   },
   threshold: {
-    type: Number,
-    default: 0,
+    type: [Array, Number],
+    default: [0, 1],
   },
   once: {
     type: Boolean,
     default: false,
+  },
+  mode: {
+    type: String,
+    default: 'intersecting',
+    validator: (value) => ['intersecting', 'intersectionRatio'].includes(value),
   },
   onEnter: {
     type: Function,
@@ -31,16 +36,28 @@ const observer = ref(null)
 
 onMounted(() => {
   const handleIntersection = (entries) => {
-    const isIntersecting = entries[0]?.isIntersecting
+    const { isIntersecting, intersectionRatio, target } = entries[0]
 
-    if (isIntersecting) {
-      if (props.once) {
-        observer.value?.disconnect()
+    if (props.mode === 'intersectionRatio') {
+      if (intersectionRatio === 1) {
+        if (props.once) observer.value?.disconnect()
+
+        props.onEnter(target)
+      } else if (intersectionRatio === 0) {
+        props.onLeave(target)
       }
 
-      props.onEnter(entries[0].target)
-    } else {
-      props.onLeave()
+      return
+    }
+
+    if (props.mode === 'intersecting') {
+      if (isIntersecting) {
+        if (props.once) observer.value?.disconnect()
+
+        props.onEnter(target)
+      } else {
+        props.onLeave(target)
+      }
     }
   }
 

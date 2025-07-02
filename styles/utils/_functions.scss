@@ -179,3 +179,19 @@
 
   @return math.div($pxval, $base) * 1rem;
 }
+
+@function svh($value) {
+  @if not unitless($value) {
+    $value: strip-units($value);
+  }
+
+  @return calc($value * 0.01 * var(--svh));
+}
+
+@function lvh($value) {
+  @if not unitless($value) {
+    $value: strip-units($value);
+  }
+
+  @return calc($value * 0.01 * var(--lvh));
+}

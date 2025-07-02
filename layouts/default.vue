@@ -1,4 +1,6 @@
 <script setup>
+import debounce from "@/utils/debounce";
+
 // Constants
 import { DEV } from "@/utils/constants";
 
@@ -19,9 +21,31 @@ useHead(() => ({
 
 // State
 const showGrid = useState(() => DEV && enable);
+
+// Methods
+const handleResize = () => {
+  const _root = document.querySelector(":root");
+  const svh = document.querySelector("#svh");
+  const lvh = document.querySelector("#lvh");
+
+  _root.style.setProperty("--svh", `${svh.clientHeight}px`);
+  _root.style.setProperty("--lvh", `${lvh.clientHeight}px`);
+};
+
+// Lifecycle
+onMounted(() => {
+  // Forget the scroll position on refresh
+  history.scrollRestoration = "manual";
+
+  handleResize();
+  window.addEventListener("resize", debounce(handleResize, 100));
+});
 </script>
 
 <template>
+  <div id="svh" />
+  <div id="lvh" />
+
   <main class="site-wrapper">
     <slot />
 

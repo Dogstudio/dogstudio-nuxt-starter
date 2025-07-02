@@ -25,7 +25,3 @@ vendors/**/*.js
 vendors/**/*.tsx
 vendors/**/*.jsx
 vendors/**/*.vue
-
-# Utilities
-utils/helpers/**/*.ts
-utils/helpers/**/*.js

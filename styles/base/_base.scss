@@ -4,16 +4,45 @@
 @use "~/styles/utils/breakpoints" as *;
 @use "~/styles/utils/variables" as *;
 
+:root {
+  --svh: 100svh;
+  --lvh: 100vh;
+}
+
 // Set up a decent box model on the root element
 // -----------------------------------------------------------------------------
 html {
   box-sizing: border-box;
+
+  &.no-scroll,
+  &.no-scroll body {
+    height: calc(100% - 1px);
+    overflow: hidden !important;
+  }
 }
 
 html,
 body {
   -webkit-touch-callout: none;
   -webkit-tap-highlight-color: transparent;
+}
+
+#svh,
+#lvh {
+  width: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  visibility: hidden;
+}
+
+#svh {
+  height: 100svh;
+}
+
+#lvh {
+  height: 100vh;
 }
 
 // Make all elements from the DOM inherit from the parent box-sizing
@@ -32,6 +61,26 @@ body {
 // -----------------------------------------------------------------------------
 body {
   width: 100%;
+  scrollbar-gutter: stable;
+
+  &.no-scroll {
+    overflow-x: hidden !important;
+    overflow-y: hidden !important;
+    touch-action: none;
+  }
+}
+
+// Mobile and desktop only classes
+.mobile-only {
+  @include mq($from: "l") using($from) {
+    display: none !important;
+  }
+}
+
+.desktop-only {
+  @include mq($until: "l") using($until) {
+    display: none !important;
+  }
 }
 
 // Set up global SVG container

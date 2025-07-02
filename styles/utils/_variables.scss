@@ -1,9 +1,3 @@
-// CSS Variables
-// -----------------------------------------------------------------------------
-:root {
-  --real-height: 100vh;
-}
-
 // Color Palettes
 // -----------------------------------------------------------------------------
 $brand-black: #000;
@@ -36,13 +30,13 @@ $config: (
     grid-columns: 6,
   ),
   l: (
-    grid-size: calc(100vw - 60px),
+    grid-size: calc(100vw - 40px),
     grid-edge: 20px,
     grid-gutter: 20px,
     grid-columns: 12,
   ),
   xxxl: (
-    grid-size: 1812px,
+    grid-size: 1824px, // 1920px - 48px - 48px
     grid-edge: 48px,
     grid-gutter: 24px,
     grid-columns: 12,

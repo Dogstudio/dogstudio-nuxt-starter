@@ -1,6 +1,6 @@
 <script setup>
 // Utils
-import Grid from '~/utils/helpers/grid'
+import Grid from '~/utils/grid'
 
 // Refs
 const grid = ref(null)
