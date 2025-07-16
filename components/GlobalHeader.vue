@@ -1,9 +1,7 @@
 <script setup></script>
 
 <template>
-  <template>
-    <div class="global-header"></div>
-  </template>
+  <div class="global-header"></div>
 </template>
 
 <style lang="scss"></style>
