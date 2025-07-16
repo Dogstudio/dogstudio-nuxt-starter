@@ -1,7 +1,7 @@
 <script setup></script>
 
 <template>
-  <div class="global-footer"></div>
+  <div class="app-header"></div>
 </template>
 
 <style lang="scss"></style>
